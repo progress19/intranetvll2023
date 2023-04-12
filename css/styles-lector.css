@@ -1,0 +1,328 @@
+@font-face {
+    font-family: futuraHeavy;
+    src: url('../fonts/Futura Heavy font.ttf');
+}
+
+@font-face {
+    font-family: futuraMedium;
+    src: url('../fonts/futura medium bt.ttf');
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {color: #CCC;}
+
+body {background-color: #DCDCDC;color: #3E3E3E;}
+
+.wrapper {
+  padding-top: 20px;
+  min-height: 100%;
+  background-color: #DCDCDC;
+}
+
+.panel-heading {overflow: auto;padding: 5px 20px 5px 0; min-height: 100px;}	
+
+.panel-heading {font-family: 'futuraHeavy';}
+.panel-heading h2 {margin-top: 8px; margin-bottom: 5px}
+.panel-heading .fecha {color: #FFF; font-size: 22px; text-align: right;}
+
+
+.panel-body {
+	min-height: 707px;
+}
+
+.panel-body h1 {	
+	text-align: center;
+}
+
+.panel-footer {
+	font-size: 13px;
+}
+
+#loading-card {
+	text-align: center;
+	padding-top: 200px;
+  display: none;
+}
+
+#datosEmpleado {font-family: 'futuraMedium';}
+
+#datosEmpleado h1 {text-align: left !important; margin-top: 0;}
+
+#mensajeInicial {text-align: center;padding-top: 20px;}
+
+#mensajeInicial h2 {line-height: 1.5em; font-family: 'futuraHeavy'}
+
+.tarjeta {border: 1px solid #CCC; padding: 20px 0 20px 10px;box-shadow: 2px 2px 5px #999;}
+
+.panel-heading h3 {margin-top: 10px; letter-spacing: 0.1em;}
+
+#autenticacion {text-align: center;}
+
+input {font-size: 45px; margin-top: 15px}
+
+.noCardFind {font-size: 80px; text-align: center; padding-top: 100px;}
+
+.noCardFind h1 {text-align: center !important;}
+
+input#idCard {
+  font-size: 1px;
+  border-color: transparent;
+  color: #f5f5f5;
+  margin-top: 0 !important;
+  background-color: #f5f5f5;
+  outline: none;
+}
+
+input#idCard:hover {
+    cursor: default; 
+}
+
+.displayNone {display: none;}
+
+.center {text-align: center;}
+
+#mensajes h2 {text-align: center; margin-bottom: 20px; line-height: 1.7em}
+
+.prove_seleccionado {
+  background-color: #605ca8 !important;
+  color: white !important;
+  box-shadow: 2px 2px 5px #999;
+}
+
+.prove_noseleccionado {
+  background-color: #ececec !important;
+  color: #605ca8 !important;
+  border: 1px solid #ccc;
+}
+
+.btn-horarios {
+    font-size: 30px;
+    margin-bottom: 28px;
+    /*width: 250px;*/
+    padding: 22px;
+    border: 1px solid #ccc;
+    margin-right: 70px;
+    margin-left: 70px;
+    background-color: #605ca8 !important;
+    color: white !important;
+}
+
+.btn-opcion {
+    font-size: 36px;
+    margin-bottom: 28px;
+    padding: 22px;
+    border: 1px solid #2972b1;
+    margin-right: 70px;
+    margin-left: 70px;
+    background-color: #2972b1;
+    color: #fff;
+}
+
+#proveedores {
+  text-align: center;
+  top: 320px;
+  position: absolute;
+  width: 100%;
+  z-index: 9999;
+}
+
+#proveedores h2 {
+  padding-bottom: 10px;
+}
+
+.btn-proveedores {
+    font-size: 25px;
+    margin-bottom: 28px;
+    width: 285px;
+    padding-top: 4px;
+    border: 1px solid #ccc;
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: #CCC;
+    text-transform: uppercase;
+}
+
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 6px 15px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.badge-green {background-color: #8AA838;}
+.badge-red {background-color: red;}
+
+
+.active-turno {
+    min-width: 10px;
+    padding: 6px 3px 5px 3px;
+    font-size: 15px;
+    line-height: 1;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #929292;
+    color: #FFF;
+}
+
+h4.turnos-info  {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 0;
+}
+
+h4.turnos-horario-info {
+  font-size: 16px;
+  text-align: left;
+  margin-top: 0;
+}
+
+.tarjeta h4 {
+  margin-top: 0 !important;
+}
+
+.divide5 {height: 5px;}
+.divide10 {height: 10px;}
+.divide20 {height: 20px;}
+.divide50 {height: 50px;}
+.divide80 {height: 80px;}
+.divide160 {height: 160px;}
+
+.turnos-info p {
+  font-size: 19px;
+}
+
+
+/* virtual keypad */
+
+#mynumber {
+  background: #000;
+  border: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+  margin: 10px 10px 0;
+  box-sizing: border-box;
+  padding: 10px 30px;
+  font-size: 14vh;
+  color: #fff;
+  text-align: right;
+  width: calc(100% - 25px);
+  height: 20vh;
+  direction: rtl;
+  cursor: text;
+ }
+
+.container-keypad {
+  /*width: 100vw;*/ 
+}
+
+.keypad {
+  width: calc(100% - 15px);
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.press {
+  display: inline-block;
+  width: calc(33.33% - 28px);
+  margin: 0 10px 10px;
+}
+
+.button {
+  width: 95%;
+  float: left;
+  display: inline-block;
+  /*background: linear-gradient(#505050, #383838);*/
+  background: linear-gradient(#605ca8, #605ca8);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);,0 2px 2px rgba(0,0,0,0.4);
+  /*border: 1px solid #000;*/
+  padding: 5px;
+  box-shadow: 2px 2px 5px #999
+}
+
+.button:hover {
+  background: linear-gradient(#7a7a7a, #5c5c5c);
+}
+
+.button.clear {
+  background: linear-gradient(#014791, #014791);
+}
+
+.button.clear:hover {
+  background: linear-gradient(#815151, #742a2a);
+}
+
+.button.go {
+  background: linear-gradient(#929292, #929292);
+}
+
+.button.go:hover {
+  background: linear-gradient(#014791, #014791);
+}
+
+.press.nr {
+  width: 100%;
+}
+
+.number {
+  text-align: center;
+  margin: 0 !important;
+  color: #fff;
+  text-shadow: 1px 1px #000;
+  font-size: 35px;
+  line-height: 60px;
+}
+
+
+.imprimiendo {text-align: center;}
+
+.ticket-contenedor {
+    box-shadow: 2px 2px 5px #999;
+    padding: 10px;
+    border: 1px solid #999;
+    min-height: 300px;
+    width: 360px;
+}
+
+/* horario */
+
+.horario-header {
+  background: rgba(96,92,168,1);
+background: -moz-linear-gradient(left, rgba(96,92,168,1) 0%, rgba(2,71,145,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(96,92,168,1)), color-stop(100%, rgba(2,71,145,1)));
+background: -webkit-linear-gradient(left, rgba(96,92,168,1) 0%, rgba(2,71,145,1) 100%);
+background: -o-linear-gradient(left, rgba(96,92,168,1) 0%, rgba(2,71,145,1) 100%);
+background: -ms-linear-gradient(left, rgba(96,92,168,1) 0%, rgba(2,71,145,1) 100%);
+background: linear-gradient(to right, rgba(96,92,168,1) 0%, rgba(2,71,145,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#605ca8', endColorstr='#024791', GradientType=1 );
+}
+
+#horarios {margin-top: 30px; text-align: center;}
+
+.btn[disabled] {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: .65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #ccc !important;
+    color: #222 !important;
+}
+
+
+

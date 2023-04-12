@@ -1,0 +1,18 @@
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteEngine on
+
+RewriteRule paquete/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ paquete-detalle.php?idPromo=$2
+RewriteRule paquetes/(\w+)/?$ paquetes.php?tipo=$1
+RewriteRule paquetesdestino/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ paquetes.php?idDestino=$2&tipo=$3
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# otherwise forward it to index.php
+RewriteRule . index.php
+
+<ifModule mod_headers.c>
+    Header set Access-Control-Allow-Origin: *
+</ifModule>

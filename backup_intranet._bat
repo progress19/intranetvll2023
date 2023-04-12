@@ -1,0 +1,15 @@
+@echo off
+
+"C:\Program Files (x86)\WinSCP\WinSCP.com" ^
+  /log="C:\winscp.log" /ini=nul ^
+  /command ^
+    "open sftp://sistemas:PASSWORD_USUARIO_SISTEMAS@XXX.XXX.XXX.XXX/ -hostkey=""ssh-ed25519 255 TOdIXeeESpDjSOZ+0Zyq7eyyQm9FXSVLvKB9W1zOT4Q""" ^
+    "get /opt/lampp/htdocs/intranetvll3/backups/*>=%%TIMESTAMP#yyyy-mm-dd%% C:\CARPETA_DONDE_QUERES_ALMACENAR_LOS_BACKUPS\" ^
+    "exit"
+
+set WINSCP_RESULT=%ERRORLEVEL%
+if %WINSCP_RESULT% equ 0 (
+  echo Success
+) else (
+  echo Error
+)

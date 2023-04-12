@@ -1,0 +1,90 @@
+
+.div-fondo {
+	background-image: url("../images/bk_pistas.jpeg");
+	height: 100%;
+	padding: 20px 20px 19px 20px;
+}
+
+.div-marco {
+	height: 100%;
+	padding: 20px;
+	border: 1px solid yellow;
+}
+
+.marco-top-left {
+	border-top: 1px solid yellow;
+	width: 35%;
+}
+
+.marco-top-right {
+	border-top: 1px solid yellow;
+	width: 35%;
+	float: right;
+}
+
+.marco-right {
+	border-right: 1px solid yellow;
+	width: 100%;
+	float: right;
+	height: 100%;
+}
+
+.marco-bottom {
+	border-bottom: 1px solid yellow;
+	height: 100%;
+}
+
+.marco-right {
+	border-left: 1px solid yellow;
+	width: 100%;
+	float: left;
+	height: 100%;
+}
+
+.logo-lenas {	
+	position: absolute;
+	float: right;
+	right: 30px;
+	bottom: 30px;
+}
+
+.carousel {
+    position: absolute;
+}
+
+.contenedor {
+	position: absolute;
+	width: 100%;
+	top: 100px;
+	padding: 100px 80px 0 80px;
+}
+
+.jumbotron {
+	/*position: absolute;*/
+	top: 170px;
+	padding: 0;
+}
+
+.jumbotron h1 {
+	font-size: 40px;
+	font-weight: 900;
+}
+
+.fondo {
+	background: rgba(255,255,255,0.8);
+}
+
+table {
+	font-size: 40px;
+	margin-bottom: 20px !important;
+}
+
+.displayNone {display: none !important;}
+
+.logo-imperial {
+	position: absolute;
+	top: 0;
+	text-align: center;
+	width: 100%;
+}
+

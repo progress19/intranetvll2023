@@ -1,0 +1,87 @@
+UPDATE `personal` SET `idSector`=1 WHERE `sector` = 'ADMINISTRACION VALLE';
+UPDATE `personal` SET `idSector`=2 WHERE `sector` = 'ALQUILER DE EQUIPOS';
+UPDATE `personal` SET `idSector`=3 WHERE `sector` = 'CENTRO MEDICO';
+UPDATE `personal` SET `idSector`=4 WHERE `sector` = 'DEPOSITO';
+UPDATE `personal` SET `idSector`=5 WHERE `sector` = 'G. COMERCIAL'; 
+UPDATE `personal` SET `idSector`=6 WHERE `sector` = 'G. INFRAESTRUCTURA'; 
+UPDATE `personal` SET `idSector`=7 WHERE `sector` = 'HOTEL ACUARIO'; 
+UPDATE `personal` SET `idSector`=8 WHERE `sector` = 'HOTEL ARIES'; 
+UPDATE `personal` SET `idSector`=9 WHERE `sector` = 'HOTEL ESCORPIO'; 
+UPDATE `personal` SET `idSector`=10 WHERE `sector` = 'HOTEL PISCIS';
+UPDATE `personal` SET `idSector`=11 WHERE `sector` = 'LAVADERO';
+UPDATE `personal` SET `idSector`=12 WHERE `sector` = 'MEDIOS DE ELEVACION';
+UPDATE `personal` SET `idSector`=13 WHERE `sector` = 'PISANIEVES Y FABRICACION';
+UPDATE `personal` SET `idSector`=14 WHERE `sector` = 'RECURSOS HUMANOS';
+UPDATE `personal` SET `idSector`=15 WHERE `sector` = 'RESIDENCIA DE PERSONAL';
+UPDATE `personal` SET `idSector`=16 WHERE `sector` = 'SEGURIDAD DE PISTAS';
+UPDATE `personal` SET `idSector`=17 WHERE `sector` = 'SISTEMAS VALLE';
+UPDATE `personal` SET `idSector`=18 WHERE `sector` = 'AT. AL HUESPED';
+UPDATE `personal` SET `idSector`=19 WHERE `sector` = 'ESCUELA VENTAS';
+UPDATE `personal` SET `idSector`=20 WHERE `sector` = 'BOLETERIA';
+UPDATE `personal` SET `idSector`=21 WHERE `sector` = 'JARDIN Y MINI LEÑAS';
+UPDATE `personal` SET `idSector`=22 WHERE `sector` = 'COMPRAS HOTELERAS';
+UPDATE `personal` SET `idSector`=23 WHERE `sector` = 'VILLA CAP.';
+UPDATE `personal` SET `idSector`=24 WHERE `sector` = 'P y C DE OPERACIONES';
+UPDATE `personal` SET `idSector`=25 WHERE `sector` = 'MANTENIMIENTO HOTELERO';
+
+/* ACTUALIZAR ULTIMO ESTADO POR ID EN TABLA PERSONAL   */
+
+UPDATE `personal` SET `idEstado`=1 WHERE `estado` = 'Presente' 
+UPDATE `personal` SET `idEstado`=2 WHERE `estado` = 'Sale Franco' 
+UPDATE `personal` SET `idEstado`=3 WHERE `estado` = 'Franco' 
+
+UPDATE `personal` SET `idEstado`=4 WHERE `estado` = '1/2 Franco'; 
+UPDATE `personal` SET `idEstado`=7 WHERE `estado` = 'Franco Compensatorio'; 
+UPDATE `personal` SET `idEstado`=8 WHERE `estado` = 'Franco Empresa'; 
+UPDATE `personal` SET `idEstado`=9 WHERE `estado` = '1/2 Franco Empresa'; 
+UPDATE `personal` SET `idEstado`=10 WHERE `estado` = 'Enfermo'; 
+UPDATE `personal` SET `idEstado`=11 WHERE `estado` = 'Permiso'; 
+UPDATE `personal` SET `idEstado`=12 WHERE `estado` = 'Vacaciones'; 
+UPDATE `personal` SET `idEstado`=13 WHERE `estado` = 'Accidente'; 
+UPDATE `personal` SET `idEstado`=14 WHERE `estado` = 'Comisión'; 
+UPDATE `personal` SET `idEstado`=15 WHERE `estado` = 'Buenos Aires';
+UPDATE `personal` SET `idEstado`=16 WHERE `estado` = 'Licencia'; 
+UPDATE `personal` SET `idEstado`=17 WHERE `estado` = 'Baja'; 
+UPDATE `personal` SET `idEstado`=18 WHERE `estado` = 'Suspensión'; 
+UPDATE `personal` SET `idEstado`=19 WHERE `estado` = 'Reserva de Puesto'; 
+UPDATE `personal` SET `idEstado`=20 WHERE `estado` = 'Inasistencia'; 
+
+/* */
+
+/* ACTUALIZAR idFrecuencia Hoteles */
+
+UPDATE `personal` SET `idFrecuencia`=2 WHERE `idSector` = '7'; 
+UPDATE `personal` SET `idFrecuencia`=2 WHERE `idSector` = '8'; 
+UPDATE `personal` SET `idFrecuencia`=2 WHERE `idSector` = '9'; 
+UPDATE `personal` SET `idFrecuencia`=2 WHERE `idSector` = '10' 
+
+
+/*  ACTIVO */
+
+UPDATE `personal` SET `activo`=1 WHERE `activo` = 'SI'
+UPDATE `personal` SET `activo`=0 WHERE `activo` = 'NO'
+
+/* ACTUALIZAR idEstado en tabla Asistencias (para eliminar estado string) */
+
+UPDATE `asistencias` SET `idEstado`=1 WHERE `estado` = 'Presente';
+UPDATE `asistencias` SET `idEstado`=2 WHERE `estado` = 'Sale Franco';
+UPDATE `asistencias` SET `idEstado`=3 WHERE `estado` = 'Franco';
+UPDATE `asistencias` SET `idEstado`=4 WHERE `estado` = '1/2 Franco';
+UPDATE `asistencias` SET `idEstado`=7 WHERE `estado` = 'Franco Compensa';
+UPDATE `asistencias` SET `idEstado`=8 WHERE `estado` = 'Franco Empresa';
+UPDATE `asistencias` SET `idEstado`=9 WHERE `estado` = '1/2 Franco E';
+UPDATE `asistencias` SET `idEstado`=10 WHERE `estado` = 'Enfermo';
+UPDATE `asistencias` SET `idEstado`=11 WHERE `estado` = 'Permiso';
+UPDATE `asistencias` SET `idEstado`=12 WHERE `estado` = 'Vacaciones';
+UPDATE `asistencias` SET `idEstado`=13 WHERE `estado` = 'Accidente';
+UPDATE `asistencias` SET `idEstado`=14 WHERE `estado` = 'Comisión';
+UPDATE `asistencias` SET `idEstado`=15 WHERE `estado` = 'Buenos Aires';
+UPDATE `asistencias` SET `idEstado`=16 WHERE `estado` = 'Licencia';
+UPDATE `asistencias` SET `idEstado`=17 WHERE `estado` = 'Baja';
+UPDATE `asistencias` SET `idEstado`=18 WHERE `estado` = 'Suspensión';
+UPDATE `asistencias` SET `idEstado`=19 WHERE `estado` = 'Reserva';
+UPDATE `asistencias` SET `idEstado`=20 WHERE `estado` = 'Inasistencia'
+
+
+
+
