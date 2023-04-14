@@ -302,6 +302,15 @@ class SiteController extends Controller {
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
+				// log event
+				$log_evento = new Tickets;
+				$ticket->tarjetaId = $_REQUEST['idCard'];
+				$ticket->tipo = $_REQUEST['idTipo']; //1-desayuno o 2-almuerzo 3-cena
+				$ticket->idProveedor = $_REQUEST['idProve'];
+				$ticket->legajo = $_REQUEST['idLegajo'];
+				$ticket->idSector = $ticket->personal_rel->idSector;
+				$ticket->save(false);
+
 		    	$this->redirect(Yii::app()->homeUrl.'admin/home');
 		 	}
 		// display the login form
@@ -425,13 +434,18 @@ class SiteController extends Controller {
 				} else { //no tiene ni desayuno ni comidas a favor
 					$saldo = 0;
 				}
+				
+				if	( $empleado->sector_rel->tipo == 0 ) { $asistencia_comida = 1;
+				} else { 
+					$asistencia_comida = $empleado->estado_rel->comidas;
+				}
 
 				return $this->renderPartial('_lectorRes', array(
 					'empleado' => $empleado,
 					'saldo' => $saldo,
 					'horario_corr' => $horario_corr,
 					'simultaneos' => $simultaneos, // 0 - se paso con la cant de ticket | 1 - OK 
-					'asistencia_comida' => $empleado->estado_rel->comidas,
+					'asistencia_comida' => $asistencia_comida,
 				));
 
 			}

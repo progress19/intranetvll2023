@@ -113,11 +113,11 @@
 
 	<div class="col-md-12 center">
 		<i class="fas fa-ban" style="font-size: 85px; color: red"></i><br><br>
-		<h2>Según tu estado actual de asistencia (Franco)</h2>
+		<h2>Según tu estado actual de asistencia (<b><?php echo $empleado->estado_rel->nombre ?></b>)</h2>
 		<h2>no tienes permitido generar tickets.</h2>
 	</div>
 
-	<script>setInterval('recarga()',45000)</script>
+	<script>setInterval('recarga()',6500)</script>
 
 <?php endif // if segun estado asistencia ?>	
 

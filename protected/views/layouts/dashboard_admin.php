@@ -160,7 +160,7 @@ if(Yii::app()->user->roles=='pistas'){require_once Yii::app()->basePath . '/modu
 
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 5.0 - Marzo 2020.
+          <b>Version</b> 5.5 - Abril 2023.
         </div>
         <strong><a href="http://laslenas.com/" target="new">Valle de Las Leñas S.A.</a> - </strong> Todos los Derechos Reservados. - - Desarrollado por <a id="popoverData" class="" href="#" data-html="true"  data-content="<div><b>Análisis, desarrollo y programación : </b><br>Mauricio Lavilla - mauriciolav@gmail.com</div>" rel="popover" data-placement="top" data-original-title="" style="color: #000;" data-trigger="hover">ML</a>.-
       </footer>

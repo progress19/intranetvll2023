@@ -230,7 +230,7 @@ class Personal extends CActiveRecord
 </button>
 
 <ul id='w2' class='dropdown-menu'>
-
+	<li role='presentation'><a href='".URLRAIZ."/admin/asistencias/francosGrafico?legajo=".$legajo."&a=2023' ><i class='fa fa-fw fa-calendar'></i> Año 2023</a></li>	
 	<li role='presentation'><a href='".URLRAIZ."/admin/asistencias/francosGrafico?legajo=".$legajo."&a=2022' ><i class='fa fa-fw fa-calendar'></i> Año 2022</a></li>
 	<li role='presentation'><a href='".URLRAIZ."/admin/asistencias/francosGrafico?legajo=".$legajo."&a=2021' ><i class='fa fa-fw fa-calendar'></i> Año 2021</a></li>
 	<li role='presentation'><a href='".URLRAIZ."/admin/asistencias/francosGrafico?legajo=".$legajo."&a=2020' ><i class='fa fa-fw fa-calendar'></i> Año 2020</a></li>
@@ -255,6 +255,9 @@ public function getMenuAnosExcel($legajo) {
 </button>
 
 <ul id='w2' class='dropdown-menu'>
+	<li role='presentation'>
+		<a onclick='asistenciasGraficoExcel(".$legajo.",2023)' ><i class='fa fa-fw fa-calendar'></i> Año 2023</a>
+	</li>
 	<li role='presentation'>
 	  <a onclick='asistenciasGraficoExcel(".$legajo.",2022)' ><i class='fa fa-fw fa-calendar'></i> Año 2022</a>
 	</li>

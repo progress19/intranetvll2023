@@ -317,19 +317,22 @@ class PersonalController extends Controller
 		$this->render('francoForm');
 	}
 
-	public function actionBuscarDiaLegajoAjax($legajo,$idEstado,$fecha,$idPersonal) {
+	public function actionBuscarDiaLegajoAjax($legajo,$idEstado,$fecha=null,$idPersonal) {
 			
 		$check = '<i class="fa fa-fw fa-check"></i>';
 		$warning = '<i class="fa fa-fw fa-warning"></i>';
 
-		$wfec = explode("-",$fecha);
-		$fecha_format = "$wfec[2]-$wfec[1]-$wfec[0]";
+		$fecha_formateada = '';
 
-		//code para comprobar si el supervisor-RRHH ingresa la fecha manualmente
-		$current_date = date('Y-m-d');
-		$fecha_formateada = date('Y-m-d', strtotime($fecha_format));
-		$diferencia = strtotime($current_date) - strtotime($fecha_formateada);
-		$diferencia_en_dias = $diferencia / 400;
+		if	(Yii::app()->user->roles!='supervisor') {
+			$wfec = explode("-",$fecha);
+			$fecha_format = "$wfec[2]-$wfec[1]-$wfec[0]";
+			//code para comprobar si el supervisor-RRHH ingresa la fecha manualmente
+			$current_date = date('Y-m-d');
+			$fecha_formateada = date('Y-m-d', strtotime($fecha_format));
+			$diferencia = strtotime($current_date) - strtotime($fecha_formateada);
+			$diferencia_en_dias = $diferencia / 400;
+		}
 
 		if ( Yii::app()->user->roles=='supervisor-rrhh' && $diferencia_en_dias > 31 ) {
 			echo $warning.' NO PERMITIDO! | '.$warning.' Error | '.$warning.' Error';
