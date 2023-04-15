@@ -11,7 +11,6 @@ class SiteController extends Controller {
 	public $path = 'backups/';
 	public $back_temp_file = 'db_bk_intranet_';
 
-
 	public function actionTestEmail() {
 				
 		$body = 'test';
@@ -302,14 +301,14 @@ class SiteController extends Controller {
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
+
 				// log event
-				$log_evento = new Tickets;
-				$ticket->tarjetaId = $_REQUEST['idCard'];
-				$ticket->tipo = $_REQUEST['idTipo']; //1-desayuno o 2-almuerzo 3-cena
-				$ticket->idProveedor = $_REQUEST['idProve'];
-				$ticket->legajo = $_REQUEST['idLegajo'];
-				$ticket->idSector = $ticket->personal_rel->idSector;
-				$ticket->save(false);
+				Yii::import('application.models.LogEventos');
+				$log_evento = new LogEventos();
+				$log_evento->detalle = 'Login';
+				$log_evento->idUsuario = Yii::app()->user->id;
+				$log_evento->idTipo = 1;
+				$log_evento->save(false);
 
 		    	$this->redirect(Yii::app()->homeUrl.'admin/home');
 		 	}

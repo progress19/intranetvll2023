@@ -56,6 +56,7 @@ class Controller extends CController
 	public $menu_archivo_asistencias;
 	public $menu_archivo_horarios;
 	public $menu_archivo_tickets;
+	public $menu_log;
 	}
 
 	define("URLRAIZ", Yii::app()->request->baseUrl);

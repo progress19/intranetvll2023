@@ -82,23 +82,11 @@
             </ul>
         </li>
 
-        <li class="treeview <?php echo $this->menu_archivo ?>">
-            <a href="<?php echo Yii::app()->request->baseUrl; ?>/puertos/admin">
-                <i class="fa fa-fw fa-archive"></i>
-                <span>Archivo</span>
-                <i class="fa fa-angle-left pull-right"></i>
+        <li class="treeview <?php echo $this->menu_personal ?>">
+            <a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/log/logView">
+            <i class="fa fa-file-text-o"></i>
+                <span>Log file</span>
             </a>
-            <ul class="treeview-menu">
-                <li class="<?php echo $this->menu_archivo_asistencias ?>">
-                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/asistencias/archivoAsistencias"><i class="fa fa-angle-double-right"></i> Asistencias</a>
-                </li>
-                <li class="<?php echo $this->menu_archivo_tickets ?>">
-                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/tickets/archivoTickets"><i class="fa fa-angle-double-right"></i> Tickets</a>
-                </li>
-                <li class="<?php echo $this->menu_archivo_horarios ?>">
-                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/horarios/archivoHorarios"><i class="fa fa-angle-double-right"></i> Horarios</a>
-                </li>
-            </ul>
         </li>
 
         <li class="treeview <?php echo $this->menu_sectores ?>">
@@ -158,6 +146,25 @@
             <ul class="treeview-menu">
                 <li class="<?php echo $this->menu_puestos_n ?>"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/puestos/create"><i class="fa fa-angle-double-right"></i> Nuevo Puesto</a></li>
                 <li class="<?php echo $this->menu_puestos_l ?>"><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/puestos/admin"><i class="fa fa-angle-double-right"></i> Listado</a></li>
+            </ul>
+        </li>
+
+        <li class="treeview <?php echo $this->menu_archivo ?>">
+            <a href="<?php echo Yii::app()->request->baseUrl; ?>/puertos/admin">
+                <i class="fa fa-fw fa-archive"></i>
+                <span>Archivo</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li class="<?php echo $this->menu_archivo_asistencias ?>">
+                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/asistencias/archivoAsistencias"><i class="fa fa-angle-double-right"></i> Asistencias</a>
+                </li>
+                <li class="<?php echo $this->menu_archivo_tickets ?>">
+                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/tickets/archivoTickets"><i class="fa fa-angle-double-right"></i> Tickets</a>
+                </li>
+                <li class="<?php echo $this->menu_archivo_horarios ?>">
+                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/horarios/archivoHorarios"><i class="fa fa-angle-double-right"></i> Horarios</a>
+                </li>
             </ul>
         </li>
 
