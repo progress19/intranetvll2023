@@ -101,8 +101,7 @@ class Sectores extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Sectores the static model class
 	 */
-	public static function model($className=__CLASS__)
-	{
+	public static function model($className=__CLASS__) {
 		return parent::model($className);
 	}
 
@@ -111,11 +110,9 @@ class Sectores extends CActiveRecord
     		<button type='button' class='btn btn-primary btn-sm'>Ver Personal</button></a>";
 	}
 
-	public function getSectores()	{
-    	 
-		$sectores = Sectores::model()->findAll(array('order'=>'nombre asc'));
-
+	public function getSectores() {
+    	$sectores = Sectores::model()->findAll(array('order'=>'nombre asc'));
 		return $sectores;
-
 	}
+	
 }

@@ -79,18 +79,15 @@ class PersonalController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
-
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
+	
 	public function actionCreate()	{
+
 		$model=new Personal;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
+				
 		if(isset($_POST['Personal']))	{
+
+			$detalle = $_POST['Personal'];
+
 			$model->password=md5($model->password);
 			$rnd = rand(10000,99999);  // Generamos un numero aleatorio entre 0-9999
 			$model->attributes=$_POST['Personal'];
@@ -98,14 +95,12 @@ class PersonalController extends Controller
 			$model->password=md5($model->password);
 
 			$uploadedFile=CUploadedFile::getInstance($model,'foto');
-            if($uploadedFile)
-            {
+            if($uploadedFile) {
 	            $fileName = "{$rnd}.jpg";  // numero aleatorio  + nombre de archivo
 	            $model->foto = $fileName;
             }
 
-            if($model->save())
-            {
+            if($model->save()) {
                 if(!empty($uploadedFile))  // checkeamos si el archivo subido esta seteado o no
                 {
                     $uploadedFile->saveAs(Yii::app()->basePath.'/../pics/personal/'.$fileName);
@@ -113,17 +108,14 @@ class PersonalController extends Controller
 				    $image->resize(400, 400);
 				    $image->save(Yii::app()->basePath.'/../pics/personal/'.$model->foto);  
                 }
- 				
+				/*Log*/ 
+				LogEventos::addLog( 5, $detalle );
  				$this->redirect(array('admin'));        
             }
- 
-            if($model->save())
- 				$this->redirect(array('admin'));        
+       
         }
  
-        $this->render('create',array(
-            'model'=>$model,
-        ));
+        $this->render('create',array( 'model'=>$model, ));
     } 
 
 	  public function actionUpdate($id)    {
@@ -393,6 +385,10 @@ class PersonalController extends Controller
 					$estado = $check.$estado['nombre'];
 					echo $estado.'|'.$hoy.'|'.$saldo;
 
+					/*Log*/
+					$detalle = '('.$empleado->legajo.') '.$empleado->nombre.' / '.$fecha.' / '.$empleado->estado_rel->nombre;
+					LogEventos::addLog( 3, $detalle ); 
+
 					} else {
 						echo $warning.' Error | '.$warning.' Error | '.$warning.' Error';
 					}
@@ -403,27 +399,30 @@ class PersonalController extends Controller
 
 				if(isset($calculo)) {
 
-						$saldo = $empleado->francos + $calculo->calculo;
+					$saldo = $empleado->francos + $calculo->calculo;
 
-						$estado = $check.$estado['nombre'];
-						echo $estado.'|'.$hoy.'|'.$saldo;
+					$estado = $check.$estado['nombre'];
+					echo $estado.'|'.$hoy.'|'.$saldo;
 
-						/* agrego nuevo registro asistencia */
-						$asistencia = new Asistencias;
-						$asistencia->legajo = $legajo;
-						$asistencia->fecha = $fecha_format;
-						$asistencia->idEstado = $idEstado;
-						$asistencia->idPersonal = $idPersonal;
-						$asistencia->save(false);	
+					/* agrego nuevo registro asistencia */
+					$asistencia = new Asistencias;
+					$asistencia->legajo = $legajo;
+					$asistencia->fecha = $fecha_format;
+					$asistencia->idEstado = $idEstado;
+					$asistencia->idPersonal = $idPersonal;
+					$asistencia->save(false);	
 
-						// actualizo datos en Empleado
-						$empleado->idEstado = $idEstado;
-						$empleado->fecha = $fecha_format;
-						$empleado->francos = $saldo;
-						$empleado->save(false);		
+					// actualizo datos en Empleado
+					$empleado->idEstado = $idEstado;
+					$empleado->fecha = $fecha_format;
+					$empleado->francos = $saldo;
+					$empleado->save(false);		
 
-					} else {
-						echo $warning.' Error | '.$warning.' Error | '.$warning.' Error';
+					$detalle = '('.$empleado->legajo.') '.$empleado->nombre.' / '.$fecha.' / '.$empleado->estado_rel->nombre;
+					LogEventos::addLog( 3, $detalle ); 
+
+				} else {
+					echo $warning.' Error | '.$warning.' Error | '.$warning.' Error';
 				}
 			}
 

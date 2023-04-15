@@ -29,7 +29,7 @@ $this->breadcrumbs=array('Administrador',);?>
     <div class="box-header">
 
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-7">
 <div class="alert alert-info">
 <span class="text16">Control de Asistencias para el día : </span><span class="text16"><strong id="fecha_de_asistencia"><?php echo date('d-m-Y') ?></strong></span>
 </div>

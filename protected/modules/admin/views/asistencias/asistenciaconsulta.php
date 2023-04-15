@@ -25,7 +25,7 @@ $this->breadcrumbs=array(
 
 
     <div class="form-group">
-      <label style="padding-top: 8px;" for="inputType" class="col-md-6 control-label"><span class="text15">Control de Asistencias para el día : </span></label>
+      <label style="padding-top: 8px;" for="inputType" class="col-md-7 control-label"><span class="text15">Control de Asistencias para el día : </span></label>
       <div class="col-md-4">
 
       </div>

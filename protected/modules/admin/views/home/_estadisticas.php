@@ -11,15 +11,15 @@
 
 		<?php 
 
-			echo '<h4>Total Personal : <strong>'.$total_empleados.'</strong></h4>';
-			echo '<h4>Total Personal Corporativo Activo: <strong>'.$total_empleados_co.'</strong></h4>';
-			echo '<h4>Total Personal No Corporativo Activo: <strong>'.$total_empleados_no_co.'</strong></h4>';
+			echo '<h5>Total Personal : <strong>'.$total_empleados.'</strong></h5>';
+			echo '<h5>Total Personal Corporativo Activo: <strong>'.$total_empleados_co.'</strong></h5>';
+			echo '<h5>Total Personal No Corporativo Activo: <strong>'.$total_empleados_no_co.'</strong></h5>';
 			//echo '<h4>Total Personal Activo : <strong>'.$activos.'</strong></h4></br>';
 
 			foreach ($estados_array as $key => $estado ) {
 				
 				if ($estado>0) {
-					echo '<h4>'.$key.' : <strong>'.$estado.'</strong></h4>';	
+					echo '<h5>'.$key.' : <strong>'.$estado.'</strong></h5>';	
 				}
 				
 			}

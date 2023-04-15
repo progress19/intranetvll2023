@@ -13,8 +13,8 @@ body {
 }
 
 body, td, input, textarea {
-  font-family: source sans pro, sans-serif;
-  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
   line-height: 1.5;
   color: #222;
 }

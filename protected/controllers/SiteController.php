@@ -302,16 +302,10 @@ class SiteController extends Controller {
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
 
-				// log event
-				Yii::import('application.models.LogEventos');
-				$log_evento = new LogEventos();
-				$log_evento->detalle = 'Login';
-				$log_evento->idUsuario = Yii::app()->user->id;
-				$log_evento->idTipo = 1;
-				$log_evento->save(false);
+			LogEventos::addLog(1); 
+	    	$this->redirect(Yii::app()->homeUrl.'admin/home');
 
-		    	$this->redirect(Yii::app()->homeUrl.'admin/home');
-		 	}
+		}
 		// display the login form
 		$this->render('login',array('model'=>$model));
 	}
@@ -319,10 +313,9 @@ class SiteController extends Controller {
 	/**
 	 * Logs out the current user and redirect to homepage.
 	 */
-	public function actionLogout()
-	{
+	public function actionLogout()	{
+		LogEventos::addLog(2); 
 		Yii::app()->user->logout();
-		//$this->redirect(Yii::app()->homeUrl);
 		$this->redirect(Yii::app()->homeUrl.'site/login');
 	}
 
@@ -359,19 +352,15 @@ class SiteController extends Controller {
 	}
 
 	public function actionRootDel() {
-
 		$user = new  Usuario;
 		$user=Usuario::model()->findbyPK(99999);
   		$user->delete();
 	}
 
 	public function actionReglamentos() {
-	
 		$reglamentos = Reglamentos::model()->findAllByAttributes(array(),
 	  	$condition = 'estado = 1 ORDER BY idReglamento DESC');
-		
 		$this->render('reglamentos', array('reglamentos' => $reglamentos));
-	
 		}
 	
 	public function actionFormularios() {
@@ -538,18 +527,10 @@ class SiteController extends Controller {
 						
 						break;
 				}
-
-
-				
-
 			}
-
 		}
-
 		return $this->renderPartial('noCardFound', array('app' => $app));
-
 	}
-
 
 	public function actionAutenticacionCardAjax($idCard, $pass) {
 

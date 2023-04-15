@@ -19,11 +19,11 @@ if (isset($_REQUEST[0]['fecha'])) {
 <div class="box box-primary">
     <div class="box-header">
 
-  <div class="col-md-6">
+  <div class="col-md-7">
       <div id="estadisticas"></div>
     </div>
 
-      <div class="col-md-3">
+      <div class="col-md-4">
     <label for="">Seleccione fecha para estadisticas :</label>      
       <?php 
       $this->widget('zii.widgets.jui.CJuiDatePicker', array(

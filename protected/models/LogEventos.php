@@ -24,7 +24,7 @@ class LogEventos extends CActiveRecord {
 			array('detalle', 'type', 'type' => 'text'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, fecha, idTipo, idUsuario, detalle', 'safe', 'on'=>'search'),
+			array('id, fecha, idTipo, idUsuario, detalle, puesto_ip', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,41 +55,21 @@ class LogEventos extends CActiveRecord {
 		);
 	}
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
-	 */
-	public function search()	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
-
+	public function search() {
 		$criteria=new CDbCriteria;
-
-        //$criteria->with = array('personal_rel');
-        //$criteria->with = array('sector_rel');
-        //$criteria->compare('personal_rel.nombre',$this->nombre_empleado,true); 
-
 		$criteria->compare('id',$this->id);
 		$criteria->compare('`t`.`idTipo`',$this->idTipo);
 		$criteria->compare('`t`.`idUsuario`',$this->idUsuario);
-		$criteria->compare('`t`.`detalle`',$this->detalle);
+		$criteria->compare('`t`.`puesto_ip`',$this->puesto_ip, true);
+		$criteria->compare('`t`.`detalle`',$this->detalle, true);
 		$criteria->compare('DATE_FORMAT( `t`.`fecha`, "%Y-%m-%d")',$this->fecha,true);
 				
-
 		/*
         if((isset($this->desde) && trim($this->desde) != "") && (isset($this->hasta) && trim($this->hasta) != ""))
 		$criteria->addBetweenCondition("DATE_FORMAT(`t`.`fecha`, '%Y-%m-%d')", ''.Yii::app()->dateFormatter->format("yyyy-MM-dd", $this->desde).'', ''.Yii::app()->dateFormatter->format("yyyy-MM-dd", $this->hasta).'');
         */
 
 		$sort=new CSort();
-
 		$sort->defaultOrder = '`t`.`id` DESC';
 
 		return new CActiveDataProvider($this, array(
@@ -99,15 +79,61 @@ class LogEventos extends CActiveRecord {
 		));
 	}
 
-	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return Tickets the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
+	public static function model($className=__CLASS__)	{ return parent::model($className); }
+
+	public static function addLog( $idTipo, $detalle=null ) {
+
+		if ( $idTipo == 5 ) { // Nuevo empleado
+			$string='';
+			foreach ( $detalle as $key => $value ) {
+
+				if ( $key == 'legajo' ) { $string .= "Legajo: $value, ";}
+				if ( $key == 'nombre' ) { $string .= "Nombre: $value, ";}
+				if ( $key == 'cuil' && !empty($value) ) { $string .= "Cuil: $value, ";}
+				if ( $key == 'idSector' ) {
+					$sector = Sectores::model()->findByPk( $value );
+					$string .= "Sector: $sector->nombre, ";
+				}
+				if ( $key == 'idFrecuencia' ) {
+					$frecuencia = Frecuencias::model()->findByPk( $value );
+					$string .= "Frecuencia: $frecuencia->nombre, ";
+				}
+				if ( $key == 'francos' && !empty($value) ) { $string .= "Francos: $value, ";}
+				if ( $key == 'tarjetaId' && !empty($value) ) { $string .= "Tarjeta Id: $value, ";}
+				if ( $key == 'desayunos' && !empty($value) ) { $string .= "Desayunos: $value, ";}
+				if ( $key == 'comidas' && !empty($value) ) { $string .= "Comidas: $value, ";}
+				if ( $key == 'simultaneos' && !empty($value) ) { $string .= "Simultaneos: $value, ";}
+				if ( $key == 'desayuno_desde' && !empty($value) ) { $string .= ": $value, ";}
+				if ( $key == 'desayuno_hasta' && !empty($value) ) { $string .= ": $value, ";}
+				if ( $key == 'almuerzo_desde' && !empty($value) ) { $string .= "Alm.desde: $value, ";}
+				if ( $key == 'almuerzo_hasta' && !empty($value) ) { $string .= "Alm.hasta: $value, ";}
+				if ( $key == 'cena_desde' && !empty($value) ) { $string .= "Cena desde: $value, ";}
+				if ( $key == 'cena_hasta' && !empty($value) ) { $string .= "cena hasta: $value, ";}
+				if ( $key == 'em' && !empty($value) ) { $string .= "Ent.Man.: $value, ";}
+				if ( $key == 'sm' && !empty($value) ) { $string .= "Sal.Man.: $value, ";}
+				if ( $key == 'et' && !empty($value) ) { $string .= "Ent.tarde: $value, ";}
+				if ( $key == 'st' && !empty($value) ) { $string .= "Sal.tarde: $value, ";}
+				if ( $key == 'obs' && !empty($value) ) { $string .= "Obs: $value, ";}
+
+			}
+		
+			$detalle = rtrim($string, ", "); // Eliminar la última coma y el espacio en blanco
+		
+		} // fin (5) Nuevo empleado
+
+		if ( $idTipo == 6 ) { // Eliminó empleado
+
+			$detalle = '';
+
+		}
+
+		$log_evento = new LogEventos();
+		$log_evento->idTipo = $idTipo;
+		$log_evento->idUsuario = Yii::app()->user->id;
+		$log_evento->puesto_ip = Yii::app()->request->getUserHostAddress();
+		$log_evento->detalle = $detalle;
+		$log_evento->save(false);
+
 	}
 
 }

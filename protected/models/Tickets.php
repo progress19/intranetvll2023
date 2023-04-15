@@ -89,7 +89,7 @@ class Tickets extends CActiveRecord
 		$criteria=new CDbCriteria;
 
         $criteria->with = array('personal_rel');
-         $criteria->compare('personal_rel.nombre',$this->nombre_empleado,true); 
+        $criteria->compare('personal_rel.nombre',$this->nombre_empleado,true); 
 
 		$criteria->compare('idTicket',$this->idTicket);
 		$criteria->compare('`t`.`tarjetaId`',$this->tarjetaId);

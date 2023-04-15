@@ -10,6 +10,7 @@
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/AdminLTE.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/nprogress.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico">
 
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin/skins/skin-purple-light.min.css" rel="stylesheet" type="text/css" />
 

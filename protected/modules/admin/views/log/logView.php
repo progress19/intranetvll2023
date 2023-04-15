@@ -10,40 +10,41 @@ $this->breadcrumbs=array('Administrador');	?>
 <?php 
 // this is the date picker
 $dateisOn = $this->widget('zii.widgets.jui.CJuiDatePicker', array(
-					// 'model'=>$model,
-				    'name' => 'Tickets[desde]',
-				    'language' => 'es',
-					'value' => $model->desde,
-				    // additional javascript options for the date picker plugin
-				    'options'=>array(
-						'dateFormat'=>'dd-mm-yy',
-						'changeMonth' => 'true',
-						'changeYear'=>'true',
-						'constrainInput' => 'false',
-				    ),
-				    'htmlOptions'=>array(
-				    	'id' => 'datepicker_desde',
-						'style'=>'height:30px;width:85px; display:inline;font-size:12px',
-				    ),
 
-				),true) . ' a  ' . $this->widget('zii.widgets.jui.CJuiDatePicker', array(
-					// 'model'=>$model,
-				    'name' => 'Tickets[hasta]',
-				    'language' => 'es',
-					'value' => $model->hasta,
-				    // additional javascript options for the date picker plugin
-				    'options'=>array(
-						'dateFormat'=>'dd-mm-yy',
-						'changeMonth' => 'true',
-						'changeYear'=>'true',
-						'constrainInput' => 'false',
-				    ),
-				    'htmlOptions'=>array(
-				    	'id' => 'datepicker_hasta',
-						'style'=>'height:30px; width:85px; display:inline;font-size:12px',
-				    ),
+	// 'model'=>$model,
+	'name' => 'Tickets[desde]',
+	'language' => 'es',
+	'value' => $model->desde,
+	// additional javascript options for the date picker plugin
+	'options'=>array(
+		'dateFormat'=>'dd-mm-yy',
+		'changeMonth' => 'true',
+		'changeYear'=>'true',
+		'constrainInput' => 'false',
+	),
+	'htmlOptions'=>array(
+		'id' => 'datepicker_desde',
+		'style'=>'height:30px;width:85px; display:inline;font-size:12px',
+	),
 
-				),true);
+),true) . ' a  ' . $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+	// 'model'=>$model,
+	'name' => 'Tickets[hasta]',
+	'language' => 'es',
+	'value' => $model->hasta,
+	// additional javascript options for the date picker plugin
+	'options'=>array(
+		'dateFormat'=>'dd-mm-yy',
+		'changeMonth' => 'true',
+		'changeYear'=>'true',
+		'constrainInput' => 'false',
+	),
+	'htmlOptions'=>array(
+		'id' => 'datepicker_hasta',
+		'style'=>'height:30px; width:85px; display:inline;font-size:12px',
+	),
+
+),true);
 
 ?>
 
@@ -113,6 +114,18 @@ $dateisOn = $this->widget('zii.widgets.jui.CJuiDatePicker', array(
 		'header'=>'Tipo',
 		'filter'=> CHtml::listData( LogTipos::model()->findAll( array('order'=>'nombre') ),'id','nombre'),
 		'type'  => 'raw',
+	),
+
+	array(
+		'name'=>'puesto_ip',
+		'value' => '$data->puesto_ip',
+		'header' => 'IP',
+	),
+
+	array(
+		'name'=>'detalle',
+		'value' => '$data->detalle',
+		'header' => 'Detalle',
 	),
 
   /*
