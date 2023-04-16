@@ -319,7 +319,6 @@ class SiteController extends Controller {
 		$this->redirect(Yii::app()->homeUrl.'site/login');
 	}
 
-
 	public function actionNoticia($idNoticia) {
 		
 		$noticia = Noticias::model()->findbyPK($idNoticia);

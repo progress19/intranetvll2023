@@ -118,46 +118,48 @@ class PersonalController extends Controller
         $this->render('create',array( 'model'=>$model, ));
     } 
 
-	  public function actionUpdate($id)    {
-        $model=$this->loadModel($id);
+	public function actionUpdate($id) {
+        
+		$model = $this->loadModel($id);
+		
+        if ( isset($_POST['Personal']) ) {
 
-        if(isset($_POST['Personal']))
-        {
-        	$old = $model->password;
+			$detalle = $_POST['Personal'];
+        	
+			$model_old = $this->loadModel($id);
+
+			//$model_old = [ 'nombre' => $model->nombre ];
+
+			$old = $model->password;
             $rnd = rand(10000,99999);  // Generamos un numero aleatorio entre 0-9999
             $_POST['Personal']['foto'] = $model->foto;
             $model->attributes=$_POST['Personal'];
 
-            if ($old!=$model->password) {
-				$model->password=md5($model->password);
-			}
+            if ( $old != $model->password ) { $model->password = md5( $model->password ); }
 
-             //print_r($_POST['Personal']);die;
-
-            $subiendoImagen=CUploadedFile::getInstance($model,'foto');
-            if($subiendoImagen)
-            {// print_r($_POST['Personal']);die;
+			//print_r( $model );die;
+            
+			$subiendoImagen=CUploadedFile::getInstance($model,'foto');
+            if($subiendoImagen) {
 	            $fileName = "{$rnd}.png";  // numero aleatorio  + nombre de archivo
 	            $model->foto = $fileName;
             }
 
-            if($model->save()){
-
-                if(!empty($subiendoImagen))
-                {
+            if( $model->save() ) {
+                if(!empty($subiendoImagen)) {
                     $subiendoImagen->saveAs(Yii::app()->basePath.'/../pics/personal/'.$fileName);
                     $image = Yii::app()->image->load(Yii::app()->basePath.'/../pics/personal/'.$model->foto);
 				    $image->resize(400, 400);
-				   // $image->crop(600,600);
+				    //$image->crop(600,600);
 				    $image->save(Yii::app()->basePath.'/../pics/personal/'.$model->foto);  
 
                 } 
+				
+				LogEventos::addLog( 7, $detalle, $model_old );
  				$this->redirect(array('admin'));       
             }
         }
-        $this->render('update',array(
-            'model'=>$model,
-        ));
+        $this->render('update',array('model'=>$model,));
     } 
 
 	public function actionDelete($id) {
