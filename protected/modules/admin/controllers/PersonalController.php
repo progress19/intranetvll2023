@@ -160,36 +160,27 @@ class PersonalController extends Controller
         ));
     } 
 
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
-	 */
-	public function actionDelete($id)
-	{
+	public function actionDelete($id) {
+				
+		$personal = Personal::model()->findByPk( $id );
+		$detalle = '('.$personal->legajo.') '.$personal->nombre;
+		LogEventos::addLog( 6, $detalle );
+		
 		$this->loadModel($id)->delete();
-
+		
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
-	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
+	public function actionIndex() {
 		$dataProvider=new CActiveDataProvider('Personal');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}
 
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin_OLD()
-	{
+	public function actionAdmin_OLD()  {
 		$model=new Personal('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Personal']))

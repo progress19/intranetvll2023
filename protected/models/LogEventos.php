@@ -123,7 +123,7 @@ class LogEventos extends CActiveRecord {
 
 		if ( $idTipo == 6 ) { // Eliminó empleado
 
-			$detalle = '';
+			//$detalle = '';
 
 		}
 
