@@ -59,8 +59,19 @@ class HorariosController extends Controller
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
-	public function actionDelete($id)
-	{
+	public function actionDelete($id) {
+
+		$horario = Horarios::model()->findByPk( $id );
+		
+		$em = Yii::app()->dateFormatter->format("HH:mm", $horario->em);
+		$sm = Yii::app()->dateFormatter->format("HH:mm", $horario->sm);
+		$et = Yii::app()->dateFormatter->format("HH:mm", $horario->et);
+		$st = Yii::app()->dateFormatter->format("HH:mm", $horario->st);
+		
+		$detalle = '('.$horario->legajo.') '.$horario->personal_rel->nombre.', Fecha: '.Yii::app()->dateFormatter->format("dd-MM-yyyy", $horario->fecha).', Ent.Man: '.$em.', Sal.Man: '.$sm.', Ent.Tarde: '.$et.', Sal.Tarde: '.$st;
+
+		LogEventos::addLog( 11, $detalle );
+
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

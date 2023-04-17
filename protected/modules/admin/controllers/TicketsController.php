@@ -119,18 +119,13 @@ class TicketsController extends Controller
 	public function actionDelete($id) {
 
 		$ticket = Tickets::model()->findByPk( $id );
-		$detalle = '('.$ticket->legajo.') '.$ticket->nombre;
+		//$detalle = '('.$ticket->legajo.') '.$ticket->nombre;
 
 		if ($ticket->tipo==1) {$tipo = 'Desayuno';}
 		if ($ticket->tipo==2) {$tipo = 'Almuerzo';}
 		if ($ticket->tipo==3) {$tipo = 'Cena';}
 
-		$detalle = 'Ticket Id: '.$ticket->idTicket.' ,
-		Tarjeta id:'.$ticket->tarjetaId.' ,
-		Empleado: ('.$ticket->legajo.') '.$ticket->personal_rel->nombre.', 
-		Proveedor: '.$ticket->proveedor_rel->nombre.' ,
-		Tipo: '.$tipo.',
-		Fecha: '.$ticket->fecha;
+		$detalle = 'Ticket Id: '.$ticket->idTicket.' ,Tarjeta id: '.$ticket->tarjetaId.' ,Empleado: ('.$ticket->legajo.') '.$ticket->personal_rel->nombre.' ,Proveedor: '.$ticket->proveedor_rel->nombre.' , Tipo: '.$tipo.' ,Fecha: '.Yii::app()->dateFormatter->format("dd-MM-yyyy HH:mm", $ticket->fecha);
 
 		LogEventos::addLog( 10, $detalle );
 
