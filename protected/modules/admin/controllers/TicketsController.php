@@ -116,8 +116,24 @@ class TicketsController extends Controller
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
-	public function actionDelete($id)
-	{
+	public function actionDelete($id) {
+
+		$ticket = Tickets::model()->findByPk( $id );
+		$detalle = '('.$ticket->legajo.') '.$ticket->nombre;
+
+		if ($ticket->tipo==1) {$tipo = 'Desayuno';}
+		if ($ticket->tipo==2) {$tipo = 'Almuerzo';}
+		if ($ticket->tipo==3) {$tipo = 'Cena';}
+
+		$detalle = 'Ticket Id: '.$ticket->idTicket.' ,
+		Tarjeta id:'.$ticket->tarjetaId.' ,
+		Empleado: ('.$ticket->legajo.') '.$ticket->personal_rel->nombre.', 
+		Proveedor: '.$ticket->proveedor_rel->nombre.' ,
+		Tipo: '.$tipo.',
+		Fecha: '.$ticket->fecha;
+
+		LogEventos::addLog( 10, $detalle );
+
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

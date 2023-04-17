@@ -83,7 +83,7 @@ class LogEventos extends CActiveRecord {
 
 	public static function addLog( $idTipo, $detalle=null, $model_old=null ) {
 
-		$paso = 1;$string='';
+		$pase = 1; $string='';
 
 		if ( $idTipo == 5 ) { // Nuevo empleado
 
@@ -116,7 +116,6 @@ class LogEventos extends CActiveRecord {
 				if ( $key == 'et' && !empty($value) ) { $string .= "Ent.tarde: $value, ";}
 				if ( $key == 'st' && !empty($value) ) { $string .= "Sal.tarde: $value, ";}
 				if ( $key == 'obs' && !empty($value) ) { $string .= "Obs: $value, ";}
-
 			}
 		
 			$detalle = rtrim($string, ", "); // Eliminar la última coma y el espacio en blanco
@@ -124,78 +123,42 @@ class LogEventos extends CActiveRecord {
 		} // fin (5) Nuevo empleado
 
 		if ( $idTipo == 7 ) { // Modificó empleado
-			
 			$pase = 0;
-			//echo $detalle['nombre'];
-			//print_r($detalle);
-			//die();
-			//$new_model->attributes = $detalle;
-			
-			
+			$string = '('.$model_old->legajo.') '.$model_old->nombre.' => ';
 			if ( $model_old->legajo != $detalle['legajo'] ) { $string .= 'Legajo: '.$model_old->legajo.' -> '.$detalle['legajo'].', '; $pase = 1; } 
 			if ( $model_old->nombre != $detalle['nombre'] ) { $string .= 'Nombre: '.$model_old->nombre.' -> '.$detalle['nombre'].', '; $pase = 1; } 
 			if ( $model_old->cuil != $detalle['cuil'] ) { $string .= 'Cuil: '.$model_old->cuil.' -> '.$detalle['cuil'].', '; $pase = 1; } 
-						
 			if ( $model_old->idSector != $detalle['idSector'] ) {
 				$sector_old = Sectores::model()->findByPk( $model_old->idSector );	 
 				$sector_new = Sectores::model()->findByPk( $detalle['idSector'] );	 
 				$string .= 'Sector: '.$sector_old->nombre.' -> '.$sector_new->nombre.', '; $pase = 1; 
 			} 
-
 			if ( $model_old->idFrecuencia != $detalle['idFrecuencia'] ) {
 				$frecuencia_old = Frecuencias::model()->findByPk( $model_old->idFrecuencia );	 
 				$frecuencia_new = Frecuencias::model()->findByPk( $detalle['idFrecuencia'] );	 
 				$string .= 'Frecuencia: '.$frecuencia_old->nombre.' -> '.$frecuencia_new->nombre.', '; $pase = 1; 
 			}
-			
 			if ( $model_old->francos != $detalle['francos'] ) { $string .= 'Francos: '.$model_old->francos.' -> '.$detalle['francos'].', '; $pase = 1; } 
 			if ( $model_old->tarjetaId != $detalle['tarjetaId'] ) { $string .= 'TarjetaId: '.$model_old->tarjetaId.' -> '.$detalle['tarjetaId'].', '; $pase = 1; } 
 			if ( $model_old->desayunos != $detalle['desayunos'] ) { $string .= 'Desayunos: '.$model_old->desayunos.' -> '.$detalle['desayunos'].', '; $pase = 1; } 
 			if ( $model_old->comidas != $detalle['comidas'] ) { $string .= 'Comidas: '.$model_old->comidas.' -> '.$detalle['comidas'].', '; $pase = 1; } 
 			if ( $model_old->desayuno_desde != $detalle['desayuno_desde'] ) { $string .= 'Desayuno desde: '.$model_old->desayuno_desde.' -> '.$detalle['desayuno_desde'].', '; $pase = 1; } 
 			if ( $model_old->desayuno_hasta != $detalle['desayuno_hasta'] ) { $string .= 'Desayuno hasta: '.$model_old->desayuno_hasta.' -> '.$detalle['desayuno_hasta'].', '; $pase = 1; } 
-
-			/*
-			if ( $model_old-> != $detalle[''] ) { $string .= ': '.$model_old->.' -> '.$detalle[''].', '; $pase = 1; } 
-			if ( $model_old-> != $detalle[''] ) { $string .= ': '.$model_old->.' -> '.$detalle[''].', '; $pase = 1; } 
-			if ( $model_old-> != $detalle[''] ) { $string .= ': '.$model_old->.' -> '.$detalle[''].', '; $pase = 1; } 
-			if ( $model_old-> != $detalle[''] ) { $string .= ': '.$model_old->.' -> '.$detalle[''].', '; $pase = 1; } 
-			if ( $model_old-> != $detalle[''] ) { $string .= ': '.$model_old->.' -> '.$detalle[''].', '; $pase = 1; } 
-			if ( $model_old-> != $detalle[''] ) { $string .= ': '.$model_old->.' -> '.$detalle[''].', '; $pase = 1; } 
-			if ( $model_old-> != $detalle[''] ) { $string .= ': '.$model_old->.' -> '.$detalle[''].', '; $pase = 1; } 
-			if ( $model_old-> != $detalle[''] ) { $string .= ': '.$model_old->.' -> '.$detalle[''].', '; $pase = 1; } 
-			if ( $model_old-> != $detalle[''] ) { $string .= ': '.$model_old->.' -> '.$detalle[''].', '; $pase = 1; } 
-			if ( $model_old-> != $detalle[''] ) { $string .= ': '.$model_old->.' -> '.$detalle[''].', '; $pase = 1; } 
-			if ( $model_old-> != $detalle[''] ) { $string .= ': '.$model_old->.' -> '.$detalle[''].', '; $pase = 1; } 
-			*/
-			
-/*
-    [almuerzo_desde] => 10:15 
-    [almuerzo_hasta] => 18:30 
-    [cena_desde] => 18:45 
-    [cena_hasta] => 23:45 
-    [em] => 12:00 
-    [sm] => 12:00 
-    [et] => 12:00 
-    [st] => 12:00 
-    [obs] => 
-    [foto] => 40787.png 
-    [activo] => 1 
-*/ 
-
+			if ( $model_old->almuerzo_desde != $detalle['almuerzo_desde'] ) { $string .= 'Almuerzo desde: '.$model_old->almuerzo_desde.' -> '.$detalle['almuerzo_desde'].', '; $pase = 1; } 
+			if ( $model_old->almuerzo_hasta != $detalle['almuerzo_hasta'] ) { $string .= 'Almuerzo hasta: '.$model_old->almuerzo_hasta.' -> '.$detalle['almuerzo_hasta'].', '; $pase = 1; } 
+			if ( $model_old->cena_desde != $detalle['cena_desde'] ) { $string .= 'Cena desde: '.$model_old->cena_desde.' -> '.$detalle['cena_desde'].', '; $pase = 1; } 
+			if ( $model_old->cena_hasta != $detalle['cena_hasta'] ) { $string .= 'Cena hasta: '.$model_old->cena_hasta.' -> '.$detalle['cena_hasta'].', '; $pase = 1; } 
+			if ( $model_old->em != $detalle['em'] ) { $string .= 'Ent.mañana: '.$model_old->em.' -> '.$detalle['em'].', '; $pase = 1; } 
+			if ( $model_old->sm != $detalle['sm'] ) { $string .= 'Sal.mañana: '.$model_old->sm.' -> '.$detalle['sm'].', '; $pase = 1; } 
+			if ( $model_old->et != $detalle['et'] ) { $string .= 'Ent.tarde: '.$model_old->et.' -> '.$detalle['et'].', '; $pase = 1; } 
+			if ( $model_old->st != $detalle['st'] ) { $string .= 'Sal.tarde: '.$model_old->st.' -> '.$detalle['st'].', '; $pase = 1; } 
+			if ( $model_old->obs != $detalle['obs'] ) { $string .= 'Obs: '.strip_tags($model_old->obs).' -> '.strip_tags($detalle['obs']).', '; $pase = 1; } 
+			if ( $model_old->activo != $detalle['activo'] ) { $string .= 'Activo: '.$model_old->activo.' -> '.$detalle['activo'].', '; $pase = 1; } 
+						
 			$detalle = rtrim($string, ", "); // Eliminar la última coma y el espacio en blanco
-
-			//echo 'ant '.$model_old->nombre.'-----';
-			//echo 'nuevo: '.$detalle['nombre'];
-
-			//echo $string;
-			//echo $model_old;
-			//die();
-
-
 		}
 
-		if ( $pase==1 ) {
+		if ( $pase == 1 ) {
 			$log_evento = new LogEventos();
 			$log_evento->idTipo = $idTipo;
 			$log_evento->idUsuario = Yii::app()->user->id;
@@ -203,8 +166,5 @@ class LogEventos extends CActiveRecord {
 			$log_evento->detalle = $detalle;
 			$log_evento->save(false);	
 		}
-		
-
 	}
-
 }

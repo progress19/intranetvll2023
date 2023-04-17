@@ -115,9 +115,7 @@ class LogController extends Controller
 		if(isset($_GET['LogEventos']))
 			$model->attributes=$_GET['LogEventos'];
 
-		$this->render('logView',array(
-			'model'=>$model,
-		));
+		$this->render('logView',array('model'=>$model,));
 
 		/*
 		$model=new Personal('search');

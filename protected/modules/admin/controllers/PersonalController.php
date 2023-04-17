@@ -1,7 +1,6 @@
 <?php
 
-class PersonalController extends Controller
-{
+class PersonalController extends Controller {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -11,8 +10,7 @@ class PersonalController extends Controller
 	/**
 	 * @return array action filters
 	 */
-	public function filters()
-	{
+	public function filters() {
 		return array(
 			'accessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
@@ -20,10 +18,19 @@ class PersonalController extends Controller
 	}
 
 	public function actions() {
+
+		/* log */
+		$empleado = Personal::model()->findByPk( Yii::app()->request->getParam('pk') );
+		if ( $empleado->activo == 1) { $idTipo = 9; } else { $idTipo = 8; }
+		$detalle = '('.$empleado->legajo.') '.$empleado->nombre;
+		LogEventos::addLog($idTipo, $detalle); 
+		
 	    return array(
-	    'toggle' => array(
-	    'class'=>'booster.actions.TbToggleAction',
-	    'modelName' => 'Personal',));
+			'toggle' => array(
+				'class'=>'booster.actions.TbToggleAction',
+				'modelName' => 'Personal',
+			)
+		);
     }
 
 	/**
