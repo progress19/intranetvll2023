@@ -11,13 +11,11 @@
  * @property integer $tipo
  * @property string $fecha
  */
-class Tickets extends CActiveRecord
-{
+class Tickets extends CActiveRecord {
 	/**
 	 * @return string the associated database table name
 	 */
-	public function tableName()
-	{
+	public function tableName()	{
 		return 'tickets';
 	}
 
@@ -109,9 +107,9 @@ class Tickets extends CActiveRecord
 
 		}*/
 
-		if((isset($this->desde) && trim($this->desde) != "") && (isset($this->hasta) && trim($this->hasta) != ""))
+		if ((isset($this->desde) && trim($this->desde) != "") && (isset($this->hasta) && trim($this->hasta) != ""))
 			
-			$criteria->addBetweenCondition("DATE_FORMAT(`t`.`fecha`, '%Y-%m-%d')", ''.Yii::app()->dateFormatter->format("yyyy-MM-dd", $this->desde).'', ''.Yii::app()->dateFormatter->format("yyyy-MM-dd", $this->hasta).'');
+		$criteria->addBetweenCondition("DATE_FORMAT(`t`.`fecha`, '%Y-%m-%d')", ''.Yii::app()->dateFormatter->format("yyyy-MM-dd", $this->desde).'', ''.Yii::app()->dateFormatter->format("yyyy-MM-dd", $this->hasta).'');
 
 		$sort=new CSort();
 
@@ -169,7 +167,6 @@ class Tickets extends CActiveRecord
 	}
 
 	public static function getTotalComProveedor($idProveedor, $desde, $hasta) {
-
 		$com = Tickets::model()->findAllByAttributes(
 				array('idProveedor'=>$idProveedor),
 				    array(
@@ -178,37 +175,29 @@ class Tickets extends CActiveRecord
 				);
 
 		return count($com);
-
 	}
 
 	public static function getComSector($idSector, $desde, $hasta, $tipo) {
-
 		$com = Tickets::model()->findAllByAttributes(
 				array('idSector'=>$idSector),
 				    array(
 				        'condition'=>'DATE_FORMAT(fecha, "%Y-%m-%d") BETWEEN :desde AND :hasta AND tipo = :tipo', 
         				'params'=>array(':desde'=>$desde, ':hasta'=>$hasta, ':tipo'=>$tipo))
 				);
-
 		return count($com);
-
 	}
 
 	public static function getTotalComSector($idSector, $desde, $hasta) {
-
 	$com = Tickets::model()->findAllByAttributes(
 			array('idSector'=>$idSector),
 			    array(
 			        'condition'=>'DATE_FORMAT(fecha, "%Y-%m-%d") BETWEEN :desde AND :hasta AND (tipo = 2 OR tipo = 3)', 
     				'params'=>array(':desde'=>$desde, ':hasta'=>$hasta))
 			);
-
 		return count($com);
-
 	}
 
 	public static function getTicketsSimultaneos($legajo, $turno, $desayunos, $comidas, $simultaneos) {
-	
 		$hoy = date('Y-m-d');
 
 		$tickets = Tickets::model()->findAllByAttributes(

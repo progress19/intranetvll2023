@@ -87,20 +87,13 @@ class TicketsController extends Controller
 		));
 	}
 
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
-	 */
-	public function actionUpdate($id)
-	{
+	public function actionUpdate($id) {
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Tickets']))
-		{
+		if(isset($_POST['Tickets'])) {
 			$model->attributes=$_POST['Tickets'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->idTicket));

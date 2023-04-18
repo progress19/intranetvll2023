@@ -1,6 +1,4 @@
 <?php
-/* @var $this TicketsController */
-/* @var $model Tickets */
 
 $this->menu_log = 'active';
 $this->titulo='<i class="fa fa-file-o"></i> Log File';
@@ -12,7 +10,7 @@ $this->breadcrumbs=array('Administrador');	?>
 $dateisOn = $this->widget('zii.widgets.jui.CJuiDatePicker', array(
 
 	// 'model'=>$model,
-	'name' => 'Tickets[desde]',
+	'name' => 'LogEventos[desde]',
 	'language' => 'es',
 	'value' => $model->desde,
 	// additional javascript options for the date picker plugin
@@ -29,7 +27,7 @@ $dateisOn = $this->widget('zii.widgets.jui.CJuiDatePicker', array(
 
 ),true) . ' a  ' . $this->widget('zii.widgets.jui.CJuiDatePicker', array(
 	// 'model'=>$model,
-	'name' => 'Tickets[hasta]',
+	'name' => 'LogEventos[hasta]',
 	'language' => 'es',
 	'value' => $model->hasta,
 	// additional javascript options for the date picker plugin
@@ -67,104 +65,79 @@ $dateisOn = $this->widget('zii.widgets.jui.CJuiDatePicker', array(
 					");
 				?>
 
-					<div class="search-form">
-						<?php //$this->renderPartial('_search',array('model'=>$model,)); ?>
-					</div><!-- search-form -->
+				<?php
 
-						<?php
+				$this->widget(
+					'booster.widgets.TbExtendedGridView',
+					array(
+						'id'=>'config-grid',
+						'filter'=>$model,
+						'type' => 'striped',
+						'dataProvider'=>$model->search(),
+						'responsiveTable' => true,
+						'template'=>'{summary}{items}{pager}',
+						'enablePagination' => true,
+						'afterAjaxUpdate' => 'reinstallDatePicker', // (#1)
+						'ajaxUpdate'=>true,
 
-						$this->widget(
-							'booster.widgets.TbExtendedGridView',
-							array(
-								'id'=>'config-grid',
-								'filter'=>$model,
-								'type' => 'striped',
-								'dataProvider'=>$model->search(),
-								'responsiveTable' => true,
-								'template'=>'{summary}{items}{pager}',
-								'enablePagination' => true,
-								'afterAjaxUpdate' => 'reinstallDatePicker', // (#1)
-								'ajaxUpdate'=>true,
+				'columns'=>array(
+				
+					array(
+						'name'=>'id',
+						'value' => 'CHtml::link($data->id, Yii::app()->createUrl("admin/log/viewDetail",array("id"=>$data->primaryKey)))',
+						'headerHtmlOptions'=>array('width'=>'60px'),
+						'type'=>'raw'
+					),
 
-'columns'=>array(
-  
-	array(
-		'name'=>'id',
-		'value' => '$data->id',
-		'header' => 'ID Log',
-		'headerHtmlOptions'=>array('width'=>'90px'),
-	),
+					array(
+						'name'=>'Fecha y Hora',
+						'filter'=>$dateisOn,
+						'value' => 'Yii::app()->dateFormatter->format("dd-MM-yyyy HH:mm", $data->fecha)',
+						'headerHtmlOptions'=>array('width'=>'200px'),
+					), 
 
-	array(
-		'name'=>'Fecha y Hora',
-		'filter'=>$dateisOn,
-		'value' => 'Yii::app()->dateFormatter->format("dd-MM-yyyy HH:mm", $data->fecha)',
-		'headerHtmlOptions'=>array('width'=>'200px'),
-	), 
+				array('name'=>'idUsuario', 
+						'value'=>'isset($data->usuario) ? $data->usuario->username:"--"',
+						'header'=>'Usuario',
+						'filter'=> CHtml::listData( Usuario::model()->findAll( array('order'=>'username') ),'id','username' ),
+						'type'  => 'raw',
+					), 
 
-  array('name'=>'idUsuario', 
-		'value'=>'isset($data->usuario) ? $data->usuario->username:"--"',
-		'header'=>'Usuario',
-		'filter'=> CHtml::listData( Usuario::model()->findAll( array('order'=>'username') ),'id','username' ),
-		'type'  => 'raw',
-	), 
+					array('name'=>'idTipo', 
+						'value'=>'isset($data->tipo) ? $data->tipo->nombre:"--"',
+						'header'=>'Tipo',
+						'filter'=> CHtml::listData( LogTipos::model()->findAll( array('order'=>'nombre') ),'id','nombre'),
+						'type'  => 'raw',
+					),
 
-	array('name'=>'idTipo', 
-		'value'=>'isset($data->tipo) ? $data->tipo->nombre:"--"',
-		'header'=>'Tipo',
-		'filter'=> CHtml::listData( LogTipos::model()->findAll( array('order'=>'nombre') ),'id','nombre'),
-		'type'  => 'raw',
-	),
+					array(
+						'name'=>'puesto_ip',
+						'value' => '$data->puesto_ip',
+						'header' => 'Puesto IP',
+					),
 
-	array(
-		'name'=>'puesto_ip',
-		'value' => '$data->puesto_ip',
-		'header' => 'IP',
-	),
+					array(
+						'name' => 'detalle',
+						'value' => function($data) {
+							// Obtener el ID del registro
+							$id = $data->id;
+							// Obtener el detalle del registro
+							$detalle = $data->detalle;
+							// Truncar el texto a 120 caracteres
+							if (strlen($detalle) > 70) {
+								$detalle = substr($detalle, 0, 70) . '...';
+								// Agregar un enlace con el texto "Ver más" que redirija a la vista de detalle
+								$detalle .= ' <a href="' . Yii::app()->createUrl('admin/log/viewDetail', array('id' => $id)) . '">(Ver más)</a>';
+							}
+							return $detalle;
+						},
+						'header' => 'Detalle',
+						'type' => 'raw', // Especificar el tipo de columna como 'raw' para que se interprete el HTML
+					),
 
-	array(
-		'name'=>'detalle',
-		'value' => '$data->detalle',
-		'header' => 'Detalle',
-	),
+					),));
 
-  /*
-	array(
-		'name'=>'nombre_empleado', 
-		'value'=>'isset($data->personal_rel) ? $data->personal_rel->nombre:"--"',
-		'header'=>'Empleado',
-		'headerHtmlOptions'=>array('width'=>'190px'),
-	),
-
-	'legajo',
-
-	array('name'=>'idSector', 
-		'value'=>'isset($data->sector_rel) ? $data->sector_rel->nombre:"--"',
-		'header'=>'Sector',
-		'filter'=> CHtml::listData(Sectores::model()->findAll(array('order'=>'nombre')),'idSector','nombre'),
-		'type'  => 'raw',
-		'headerHtmlOptions'=>array('width'=>'190px'),
-	),
-
-	'tarjetaId',
-
-	array(
-		'name' => 'tipo',
-     	'type' => 'raw',
-		'value' => '$data->getTipoTicket($data->tipo)',
-		'filter'=>array(''=>'Todos','1'=>'Desayuno','2'=>'Almuerzo','3'=>'Cena'),
-		'headerHtmlOptions'=>array('width'=>'120px'),
-    ),
-
-	array(
-		'htmlOptions' => array('nowrap'=>'nowrap'),
-		'template' => '{delete}',
-		'class'=>'booster.widgets.TbButtonColumn',
-	)
-*/
-),));
-
-?>
+				?>
 
 </div><!-- /.box-header -->
 </div>
@@ -173,9 +146,7 @@ $dateisOn = $this->widget('zii.widgets.jui.CJuiDatePicker', array(
 // (#5)
 Yii::app()->clientScript->registerScript('re-install-date-picker', "
 	function reinstallDatePicker(id, data) {
-
-		$('#datepicker_desde').datepicker(jQuery.extend(
-			{
+		$('#datepicker_desde').datepicker(jQuery.extend({
 				showMonthAfterYear:false,
 				changeMonth:true,
 				changeYear:true,
@@ -183,9 +154,7 @@ Yii::app()->clientScript->registerScript('re-install-date-picker', "
 			},
 			jQuery.datepicker.regional['es'],{'dateFormat':'dd-mm-yy'}));
 
-
-		$('#datepicker_hasta').datepicker(jQuery.extend(
-			{
+		$('#datepicker_hasta').datepicker(jQuery.extend({
 				showMonthAfterYear:false,
 				changeMonth:true,
 				changeYear:true,
@@ -193,8 +162,6 @@ Yii::app()->clientScript->registerScript('re-install-date-picker', "
 			},
 			jQuery.datepicker.regional['es'],{'dateFormat':'dd-mm-yy'}));
 		}
-
-		");
-
-		?>
+	");
+?>
 

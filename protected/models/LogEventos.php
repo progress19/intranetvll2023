@@ -4,8 +4,7 @@ class LogEventos extends CActiveRecord {
 	/**
 	 * @return string the associated database table name
 	 */
-	public function tableName()
-	{
+	public function tableName()	{
 		return 'log_eventos';
 	}
 
@@ -24,7 +23,7 @@ class LogEventos extends CActiveRecord {
 			array('detalle', 'type', 'type' => 'text'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, fecha, idTipo, idUsuario, detalle, puesto_ip', 'safe', 'on'=>'search'),
+			array('id, fecha, idTipo, idUsuario, detalle, puesto_ip, desde, hasta,', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -64,10 +63,9 @@ class LogEventos extends CActiveRecord {
 		$criteria->compare('`t`.`detalle`',$this->detalle, true);
 		$criteria->compare('DATE_FORMAT( `t`.`fecha`, "%Y-%m-%d")',$this->fecha,true);
 				
-		/*
-        if((isset($this->desde) && trim($this->desde) != "") && (isset($this->hasta) && trim($this->hasta) != ""))
+		if ((isset($this->desde) && trim($this->desde) != "") && (isset($this->hasta) && trim($this->hasta) != ""))
 		$criteria->addBetweenCondition("DATE_FORMAT(`t`.`fecha`, '%Y-%m-%d')", ''.Yii::app()->dateFormatter->format("yyyy-MM-dd", $this->desde).'', ''.Yii::app()->dateFormatter->format("yyyy-MM-dd", $this->hasta).'');
-        */
+        
 
 		$sort=new CSort();
 		$sort->defaultOrder = '`t`.`id` DESC';
@@ -142,6 +140,7 @@ class LogEventos extends CActiveRecord {
 			if ( $model_old->tarjetaId != $detalle['tarjetaId'] ) { $string .= 'TarjetaId: '.$model_old->tarjetaId.' -> '.$detalle['tarjetaId'].', '; $pase = 1; } 
 			if ( $model_old->desayunos != $detalle['desayunos'] ) { $string .= 'Desayunos: '.$model_old->desayunos.' -> '.$detalle['desayunos'].', '; $pase = 1; } 
 			if ( $model_old->comidas != $detalle['comidas'] ) { $string .= 'Comidas: '.$model_old->comidas.' -> '.$detalle['comidas'].', '; $pase = 1; } 
+			if ( $model_old->simultaneos != $detalle['simultaneos'] ) { $string .= 'Simultaneos: '.$model_old->simultaneos.' -> '.$detalle['simultaneos'].', '; $pase = 1; } 
 			if ( $model_old->desayuno_desde != $detalle['desayuno_desde'] ) { $string .= 'Desayuno desde: '.$model_old->desayuno_desde.' -> '.$detalle['desayuno_desde'].', '; $pase = 1; } 
 			if ( $model_old->desayuno_hasta != $detalle['desayuno_hasta'] ) { $string .= 'Desayuno hasta: '.$model_old->desayuno_hasta.' -> '.$detalle['desayuno_hasta'].', '; $pase = 1; } 
 			if ( $model_old->almuerzo_desde != $detalle['almuerzo_desde'] ) { $string .= 'Almuerzo desde: '.$model_old->almuerzo_desde.' -> '.$detalle['almuerzo_desde'].', '; $pase = 1; } 
