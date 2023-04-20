@@ -1,5 +1,9 @@
 <script>
-	setTimeout('recarga()',4000)
+	//setTimeout('recarga()',4000)
+	// Cerrar la ventana o pestaña después de 3 segundos
+	setTimeout(function() {
+		$('.panel-body').html('<div style="text-align:center; margin-top:150px"><button class="btn move btn-opcion" onclick="cerrarPestana()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar</button></div>');
+	}, 3000); // 3000 milisegundos = 3 segundos
 </script>
 <?php $this->layout = '';?>
 <?php 
@@ -33,7 +37,7 @@
 	<div class="imprimiendo">	    	
     	<h2>IMPRIMIENDO...</h2>
 
-		<img src="images/loading.gif" alt="" />
+		<img src="<?php echo URLRAIZ ?>/images/loading.gif" alt="" />
 
     	<h2>POR FAVOR, RETIRÁ TU TICKET AL FINALIZAR</h2>
     	<h2>GRACIAS!</h2>
@@ -96,6 +100,9 @@
 
 
 <script>
+
+function cerrarPestana() {window.close(); // Cierra la pestaña actual
+        }
 
 function printDiv(nombreDiv) {
 	var contenido = document.getElementById('ticket').innerHTML;

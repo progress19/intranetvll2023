@@ -564,8 +564,6 @@ class SiteController extends Controller {
 	}
 
 	public function actionSaveTicket() {
-		sleep(0);
-
 		$ticket = new Tickets;
 		$ticket->tarjetaId = $_REQUEST['idCard'];
 		$ticket->tipo = $_REQUEST['idTipo']; //1-desayuno o 2-almuerzo 3-cena
@@ -604,7 +602,6 @@ class SiteController extends Controller {
 			'almuerzos' => $almuerzos,
 			'cenas' => $cenas,
 		));
-		
 	}
 
 	public function actionSaveHorario() {
@@ -687,48 +684,48 @@ class SiteController extends Controller {
 		
 	}
 
-public function actionBuscarPistasSectorAjax($id) {
+	public function actionBuscarPistasSectorAjax($id) {
 
-	if ($id==1) {
-		$pistas_s1 = Pistas::model()->findAllByAttributes(array(),
-		$condition = 'idSector = 1 ORDER BY nombre ASC');
+		if ($id==1) {
+			$pistas_s1 = Pistas::model()->findAllByAttributes(array(),
+			$condition = 'idSector = 1 ORDER BY nombre ASC');
 
-		$pistas_c1 = Pistas::model()->findAllByAttributes(array(),
-		$condition = 'idSector = 2 ORDER BY nombre ASC');
+			$pistas_c1 = Pistas::model()->findAllByAttributes(array(),
+			$condition = 'idSector = 2 ORDER BY nombre ASC');
 
-		return $this->renderPartial('_pistas', array('pistas_s1' => $pistas_s1, 'pistas_c1' => $pistas_c1));
+			return $this->renderPartial('_pistas', array('pistas_s1' => $pistas_s1, 'pistas_c1' => $pistas_c1));
+		}
+
+		if ($id==2) {
+			$pistas_s2 = Pistas::model()->findAllByAttributes(array(),
+			$condition = 'idSector = 3 ORDER BY nombre ASC');
+
+			// CONEXION SECTOR II
+			$pistas_c2 = Pistas::model()->findAllByAttributes(array(),
+			$condition = 'idSector = 4 ORDER BY nombre ASC');
+
+			$pistas_s2_1 = array_slice($pistas_s2, 0,11);
+			$pistas_s2_2 = array_slice($pistas_s2, 12,13);
+
+			return $this->renderPartial('_pistas2', array(
+				'pistas_s2_1' => $pistas_s2_1,
+				'pistas_s2_2' => $pistas_s2_2,
+				'pistas_c2' => $pistas_c2,
+			));}
+
+		if ($id==3) {
+			$pistas_s3 = Pistas::model()->findAllByAttributes(array(),
+			$condition = 'idSector = 5 ORDER BY nombre ASC');
+
+			// CONEXION SECTOR III
+			$pistas_c3 = Pistas::model()->findAllByAttributes(array(),
+			$condition = 'idSector = 6 ORDER BY nombre ASC');
+
+			return $this->renderPartial('_pistas3', array(
+				'pistas_s3' => $pistas_s3,
+				'pistas_c3' => $pistas_c3,
+			));}
+
 	}
-
-	if ($id==2) {
-		$pistas_s2 = Pistas::model()->findAllByAttributes(array(),
-		$condition = 'idSector = 3 ORDER BY nombre ASC');
-
-		// CONEXION SECTOR II
-		$pistas_c2 = Pistas::model()->findAllByAttributes(array(),
-		$condition = 'idSector = 4 ORDER BY nombre ASC');
-
-		$pistas_s2_1 = array_slice($pistas_s2, 0,11);
-		$pistas_s2_2 = array_slice($pistas_s2, 12,13);
-
-		return $this->renderPartial('_pistas2', array(
-			'pistas_s2_1' => $pistas_s2_1,
-			'pistas_s2_2' => $pistas_s2_2,
-			'pistas_c2' => $pistas_c2,
-		));}
-
-	if ($id==3) {
-		$pistas_s3 = Pistas::model()->findAllByAttributes(array(),
-		$condition = 'idSector = 5 ORDER BY nombre ASC');
-
-		// CONEXION SECTOR III
-		$pistas_c3 = Pistas::model()->findAllByAttributes(array(),
-		$condition = 'idSector = 6 ORDER BY nombre ASC');
-
-		return $this->renderPartial('_pistas3', array(
-			'pistas_s3' => $pistas_s3,
-			'pistas_c3' => $pistas_c3,
-		));}
-
-}
 
 }

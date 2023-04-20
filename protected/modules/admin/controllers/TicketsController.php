@@ -33,7 +33,7 @@ class TicketsController extends Controller
 				'roles'=>array('administrador','supervisor-rrhh'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','printTicket'),
 				'users'=>array('@'),
 				'roles'=>array('administrador'),
 			),
@@ -53,23 +53,34 @@ class TicketsController extends Controller
 		);
 	}
 
-	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
-	public function actionView($id)
-	{
+	public function actionPrintTicket() {
+		
+		$idTicket = $_REQUEST['idTicket'];
+		$ticket = $this->loadModel( $idTicket );
+	
+		$desayunos = Tickets::getTicketsTipoPersonalMes(1, $ticket->legajo );
+		$almuerzos = Tickets::getTicketsTipoPersonalMes(2, $ticket->legajo );
+		$cenas = Tickets::getTicketsTipoPersonalMes(3, $ticket->legajo );
+
+		/* Log */
+		$detalle = 'Id: '.$ticket->idTicket.', Fecha: '.Yii::app()->dateFormatter->format("dd-MM-yyyy HH:mm", $ticket->fecha).', ('.$ticket->legajo.') '.$ticket->personal_rel->nombre.', Proveedor: '.$ticket->proveedor_rel->nombre.', Tipo: '.Tickets::getTipoTicket($ticket->tipo).'.';
+		LogEventos::addLog( 12, $detalle );
+
+		echo $this->render('_printTicket', array(
+			'idTicket' => $idTicket,
+			'desayunos' => $desayunos,
+			'almuerzos' => $almuerzos,
+			'cenas' => $cenas,
+		));
+	}
+	
+	public function actionView($id)	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
 	}
 
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionCreate()
-	{
+	public function actionCreate()	{
 		$model=new Tickets;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -195,10 +206,8 @@ class TicketsController extends Controller
 	 * Performs the AJAX validation.
 	 * @param Tickets $model the model to be validated
 	 */
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='tickets-form')
-		{
+	protected function performAjaxValidation($model) {
+		if(isset($_POST['ajax']) && $_POST['ajax']==='tickets-form') {
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
@@ -206,31 +215,21 @@ class TicketsController extends Controller
 
 
 	public function actionEstadisticasComProveAjax() {
-
             $desde = Yii::app()->dateFormatter->format("yyyy-MM-dd", $_REQUEST['desde']);
             $hasta = Yii::app()->dateFormatter->format("yyyy-MM-dd", $_REQUEST['hasta']);
-
             Yii::app()->user->setState('desdeSesion', $desde);
             Yii::app()->user->setState('hastaSesion', $hasta);
-        
             $proveedores = Proveedores::getProveedores();
-
 			echo $this->renderPartial('_estadisticasComProve', array('desde' => $desde, 'hasta' => $hasta, 'proveedores' => $proveedores));
-
         }
 
         public function actionEstadisticasComSectorAjax() {
-
             $desde = Yii::app()->dateFormatter->format("yyyy-MM-dd", $_REQUEST['desde']);
             $hasta = Yii::app()->dateFormatter->format("yyyy-MM-dd", $_REQUEST['hasta']);
-
             Yii::app()->user->setState('desdeSesion', $desde);
             Yii::app()->user->setState('hastaSesion', $hasta);
-        
             $sectores = Sectores::getSectores();
-
 			echo $this->renderPartial('_estadisticasComSector', array('desde' => $desde, 'hasta' => $hasta, 'sectores' => $sectores));
-
         }
 
     public function actionTicketsAjaxExcel() {

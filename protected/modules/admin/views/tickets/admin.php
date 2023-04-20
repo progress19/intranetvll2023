@@ -104,35 +104,6 @@ $dateisOn = $this->widget('zii.widgets.jui.CJuiDatePicker', array(
 		'headerHtmlOptions'=>array('width'=>'200px'),
 		), 
 
-/*
-	array(
-		'name'=>'fecha',
-		'value' => 'Yii::app()->dateFormatter->format("dd-MM-yyyy HH:mm", $data->fecha)',
-		'header' => 'Fecha',
-		'headerHtmlOptions'=>array('width'=>'130px'),
-		'type'=>'raw',
-		'filter' => $this->widget('zii.widgets.jui.CJuiDatePicker', array(
-			'model'=>$model, 
-			'attribute'=>'fecha', 
-			'language' => 'es',
-			'htmlOptions' => array(
-				'id' => 'datepicker_for_due_date',
-				'size' => '10',
-			),
-
-'options' => array(  // (#3)
-	'showOn' => 'focus', 
-	'dateFormat' => 'yy-mm-dd',
-	'showOtherMonths' => true,
-	'selectOtherMonths' => true,
-	'changeMonth' => true,
-	'changeYear' => true,
-	'showButtonPanel' => true,
-)
-), 
-true), // (#4)
-	),
-*/
 	array('name'=>'idProveedor', 
 		'value'=>'isset($data->proveedor_rel) ? $data->proveedor_rel->nombre:"--"',
 		'header'=>'Proveedor',
@@ -169,7 +140,20 @@ true), // (#4)
 
 	array(
 		'htmlOptions' => array('nowrap'=>'nowrap'),
-		'template' => '{delete}',
+		'template' => '{delete} {print}',
+
+		'buttons' => array(
+			'print' => array(
+				'label' => 'Imprimir ticket', // Puedes establecer la etiqueta del botón
+				'url' => 'Yii::app()->createUrl("admin/tickets/printTicket", array("idTicket"=>$data["idTicket"]))',
+				'options' => array(
+					'target' => '_blank', // Abrir en otra pestaña
+				),
+				'icon' => 'glyphicon glyphicon-print', // Agregar el nombre de la clase de icono
+				'iconSize' => 'lg', // Establecer el tamaño del icono (ejemplo: 'lg' para grande)
+			),
+		),
+		
 		'class'=>'booster.widgets.TbButtonColumn',
 	)
 

@@ -8,8 +8,7 @@
 		array(
 			'class' => 'CButtonColumn',
 			'template' => ' {download} {restore}',
-			  'buttons'=>array
-			    (
+			  'buttons'=>array (
 			        'Download' => array
 			        (
 			            'url'=>'Yii::app()->createUrl("backup/default/download", array("file"=>$data["name"]))',
