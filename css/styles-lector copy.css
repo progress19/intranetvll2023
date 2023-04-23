@@ -1,22 +1,3 @@
-/*
-#0d131c
-#161f2c
-#111923
-#202a39
-
-ed1d49
-*/
-:root {
-  --color-a: #0d131c; 
-  --color-b: #161f2c; 
-  --color-c: #111923; 
-  --color-d: #202a39; 
-
-  --color-e: #ed1d49;
-  --color-f: #0089c0; 
-
-}
-
 @font-face {
     font-family: futuraHeavy;
     src: url('../fonts/Futura Heavy font.ttf');
@@ -39,12 +20,12 @@ a {
 
 a:hover {color: #CCC;}
 
-body {background-color:var(--color-a);color: #3E3E3E;}
+body {background-color: #DCDCDC;color: #3E3E3E;}
 
 .wrapper {
   padding-top: 20px;
   min-height: 100%;
-  background-color: var(--color-a);
+  background-color: #DCDCDC;
 }
 
 .panel-heading {overflow: auto;padding: 5px 20px 5px 0; min-height: 100px;}	
@@ -53,9 +34,9 @@ body {background-color:var(--color-a);color: #3E3E3E;}
 .panel-heading h2 {margin-top: 8px; margin-bottom: 5px}
 .panel-heading .fecha {color: #FFF; font-size: 22px; text-align: right;}
 
+
 .panel-body {
 	min-height: 707px;
-  background-color: var(--color-f);
 }
 
 .panel-body h1 {	
@@ -95,9 +76,9 @@ input {font-size: 45px; margin-top: 15px}
 input#idCard {
   font-size: 1px;
   border-color: transparent;
-  color: #000;
+  color: #f5f5f5;
   margin-top: 0 !important;
-  background-color: transparent;
+  background-color: #f5f5f5;
   outline: none;
 }
 
@@ -139,10 +120,10 @@ input#idCard:hover {
     font-size: 36px;
     margin-bottom: 28px;
     padding: 22px;
-    border: 1px solid white;
+    border: 1px solid #2972b1;
     margin-right: 70px;
     margin-left: 70px;
-    /*background-color: #2972b1;*/
+    background-color: #2972b1;
     color: #fff;
 }
 
@@ -348,55 +329,5 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#605ca8', end
     color: #222 !important;
 }
 
-.panel {
-  border: 0 !important;
-  background-color: transparent !important;
-  border-radius: 15px 15px 0 0;
-}
-
-.panel-body h2 {
-  color: white;
-}
-
-.panel-body h1 {
-  color: white;
-  font-size: 54px;
-  font-weight: 600;
-}
-
-.panel-primary > .panel-heading {
-  color: #fff;
-  background-color: var(--color-c);
-  border-color: #428bca;
-  border-radius: 15px 15px 0 0;
-  padding-top: 8px;
-}
-
-.container {
-  width: 1250px !important;
-}
-
-.panel-footer {
-  background-color: var(--color-c);
-  color: white;
-}
-
-.panel-primary {
-  margin-top: 25px;
-  box-shadow: 3px -3px 34px 14px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 3px -3px 34px 14px rgba(0,0,0,0.75);
-  -moz-box-shadow: 3px -3px 34px 14px rgba(0,0,0,0.75);
-}
-
-.panel-footer {
-  border-top: 0;
-}
-
-#clockd p {color:#999 !important;}
 
 
-.btn-opcion:hover {
-  /* Utilizar la clase de animación y la duración especificada en los atributos data-* */
-  animation-name: var(--animation);
-  animation-duration: var(--duration);
-}

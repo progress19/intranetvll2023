@@ -5208,3 +5208,66 @@ Stack trace:
 REQUEST_URI=/intranetvll4/admin/tickets/printTicket?idTicket=4
 HTTP_REFERER=http://localhost/intranetvll4/admin/tickets/admin
 ---
+2023/04/22 19:22:38 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "pics/personal/61120.png" in /opt/lampp/htdocs/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('pics/personal/6...')
+#1 /opt/lampp/htdocs/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/intranetvll4/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/intranetvll4/pics/personal/61120.png
+HTTP_REFERER=http://localhost/intranetvll4/admin/personal/update?id=2544
+---
+2023/04/22 20:34:49 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "css/images/back2023.jpg" in /opt/lampp/htdocs/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('css/images/back...')
+#1 /opt/lampp/htdocs/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/intranetvll4/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/intranetvll4/css/images/back2023.jpg
+HTTP_REFERER=https://localhost/intranetvll4/css/styles-lector.css
+---
+2023/04/22 20:34:56 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "css/images/back2023.jpg" in /opt/lampp/htdocs/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('css/images/back...')
+#1 /opt/lampp/htdocs/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/intranetvll4/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/intranetvll4/css/images/back2023.jpg
+HTTP_REFERER=https://localhost/intranetvll4/lector
+---
+2023/04/22 20:37:20 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "css/images/back2023.jpg" in /opt/lampp/htdocs/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('css/images/back...')
+#1 /opt/lampp/htdocs/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/intranetvll4/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/intranetvll4/css/images/back2023.jpg
+HTTP_REFERER=https://localhost/intranetvll4/css/styles-lector.css
+---
+2023/04/22 20:38:24 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "css/images/back2023.jpg" in /opt/lampp/htdocs/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('css/images/back...')
+#1 /opt/lampp/htdocs/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/intranetvll4/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/intranetvll4/css/images/back2023.jpg
+HTTP_REFERER=https://localhost/intranetvll4/css/styles-lector.css
+---
+2023/04/22 21:34:54 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "images/back20s23.jpg" in /opt/lampp/htdocs/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('images/back20s2...')
+#1 /opt/lampp/htdocs/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/intranetvll4/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/intranetvll4/images/back20s23.jpg
+HTTP_REFERER=https://localhost/intranetvll4/lector
+---
+2023/04/22 21:34:54 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "images/back20s23.jpg" in /opt/lampp/htdocs/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('images/back20s2...')
+#1 /opt/lampp/htdocs/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/intranetvll4/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/intranetvll4/images/back20s23.jpg
+HTTP_REFERER=https://localhost/intranetvll4/lector
+---
