@@ -21,17 +21,13 @@
 		<h1><?php echo $empleado->nombre; ?></h1>
 		<h4>N° Legajo : <?php echo $empleado->legajo; ?></h4>
 		<h3>Sector : <?php echo $empleado->sector_rel->nombre; ?></h3>
-		<hr>
+		<h4 class="turnos-horario-info"> 
+			
+			<p><b>Turno mañana: </b>Entrada: (<?php echo $empleado->em ?>hs.) - Salida: (<?php echo $empleado->sm ?>hs.)</p>
 
-		<div class="col-md-12">
-			<h4 class="turnos-horario-info"> 
-				
-				<p><b>Turno mañana: </b>Entrada: (<?php echo $empleado->em ?>hs.) - Salida: (<?php echo $empleado->sm ?>hs.)</p>
+			<p><b>Turno tarde: </b>Entrada: (<?php echo $empleado->et ?>hs.) - Salida: (<?php echo $empleado->st ?>hs.)</p>
 
-				<p><b>Turno tarde: </b>Entrada: (<?php echo $empleado->et ?>hs.) - Salida: (<?php echo $empleado->st ?>hs.)</p>
-
-			</h4>
-		</div>
+		</h4>
 
 	</div>
 
@@ -43,18 +39,17 @@
 
 	<div class="divide20"></div>
 
-		<h1 style="color: red; text-align: center !important; font-size: 80px;"><i class="fas fa-exclamation"></i></h1> 
+		<!--<h2 style="color: white; text-align: center !important; font-size: 80px;"><i class="fas fa-exclamation"></i></h2> -->
 		<h1 style="text-align: center !important;"><?php echo $msgNo; ?></h1>
 		
-
 		<?php if ($msg_noPuestos): ?>
 			<h2><?php echo $msg_noPuestos; ?></h2>
 		<?php endif ?>
 
 		<?php if ($puestosOk): ?>
-			<h3>Por favor, dirijite a : </h3>
+			<h2>Por favor, dirijite a : </h2>
 			<h2><?php echo $puestosOk; ?></h1>
-			<h3>para registrar tus horarios.Gracias!</h3>	
+			<h2>para registrar tus horarios.Gracias!</h2>	
 		<?php endif ?>
 		
 	</div>

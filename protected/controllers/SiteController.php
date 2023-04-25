@@ -488,17 +488,12 @@ class SiteController extends Controller {
 							//print_r($puestos_habilitados); die();
 
 							if ($puestos_habilitados) {
-
-								$msgNo = 'Este Puesto, no está habilitado a tu Sector.';
-
+								$msgNo = 'Puesto no está habilitado a tu Sector.';
 								foreach ($puestos_habilitados as $puesto) {
-									
 									$puestosOk = $puestosOk.'<p> - '.$puesto->puesto->ubicacion.'</p>';
-								
 								}
 
 							} else {
-
 								$msg_noPuestos = 'El Sector '.$empleado->sector_rel->nombre.' no tiene asignados Puestos de marcación, por favor comuniquese con la oficina de Recursos Humanos, Gracias!';
 							}
 
@@ -512,7 +507,7 @@ class SiteController extends Controller {
 
 					case '12':	
 
-						$msgNo = 'Puesto no encontrado según IP ('.get_client_ip_env().').';
+						$msgNo = 'Puesto no encontrado <br> ('.get_client_ip_env().')';
 
 						return $this->renderPartial('_horarioResMsg', array(
 							'empleado' => $empleado,

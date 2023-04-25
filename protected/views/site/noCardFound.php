@@ -6,11 +6,11 @@
 
 <?php else: ?>
 
-	<script>setInterval('recarga_horario()',6000);</script>
+	<script>setInterval('recarga()',6000);</script>
 	
 <?php endif ?>
 
-<div class="col-md-12 noCardFind">
-	<i class="fas fa-exclamation" style="color: red"></i>
-	<h2 style="text-align: center !important;">NO SE ENCONTRÓ PERSONAL ASOCIADO A ESTA TARJETA.</h2>
+<div class="col-md-8 col-md-offset-2 noCardFind">
+	<i class="fas fa-exclamation" style="color: white"></i>
+	<h1 style="text-align: center !important;">No se encontró personal asociado a esta Tarjeta.</h1>
 </div>

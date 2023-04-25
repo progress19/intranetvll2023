@@ -21,17 +21,11 @@
 		<h1><?php echo $empleado->nombre; ?></h1>
 		<h4>N° Legajo : <?php echo $empleado->legajo; ?></h4>
 		<h3>Sector : <?php echo $empleado->sector_rel->nombre; ?></h3>
-		<hr>
-
-		<div class="col-md-12">
-			<h4 class="turnos-horario-info"> 
-				
-				<p><b>Turno mañana: </b>Entrada: (<?php echo $empleado->em ?>hs.) - Salida: (<?php echo $empleado->sm ?>hs.)</p>
-
-				<p><b>Turno tarde: </b>Entrada: (<?php echo $empleado->et ?>hs.) - Salida: (<?php echo $empleado->st ?>hs.)</p>
-
-			</h4>
-		</div>
+	
+		<h4 class="turnos-horario-info"> 
+			<p><b>Turno mañana: </b>Entrada: (<?php echo $empleado->em ?>hs.) - Salida: (<?php echo $empleado->sm ?>hs.)</p>
+			<p><b>Turno tarde: </b>Entrada: (<?php echo $empleado->et ?>hs.) - Salida: (<?php echo $empleado->st ?>hs.)</p>
+		</h4>
 
 	</div>
 

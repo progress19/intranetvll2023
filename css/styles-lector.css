@@ -11,9 +11,13 @@ ed1d49
   --color-b: #161f2c; 
   --color-c: #111923; 
   --color-d: #202a39; 
-
   --color-e: #ed1d49;
-  --color-f: #0089c0; 
+  --color-f: #0089c0;
+  --color-g: #f6971c;
+  --color-h: #2972b1;
+
+  --color-i: #55657e;
+  --color-j: #1bb83d;
 
 }
 
@@ -42,7 +46,7 @@ a:hover {color: #CCC;}
 body {background-color:var(--color-a);color: #3E3E3E;}
 
 .wrapper {
-  padding-top: 20px;
+  padding-top: 8px;
   min-height: 100%;
   background-color: var(--color-a);
 }
@@ -80,7 +84,13 @@ body {background-color:var(--color-a);color: #3E3E3E;}
 
 #mensajeInicial h2 {line-height: 1.5em; font-family: 'futuraHeavy'}
 
-.tarjeta {border: 1px solid #CCC; padding: 20px 0 20px 10px;box-shadow: 2px 2px 5px #999;}
+.tarjeta {
+  color: white;
+  padding: 20px 0 20px 10px;
+  background-color: var(--color-b);
+  border-radius: 13px;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+}
 
 .panel-heading h3 {margin-top: 10px; letter-spacing: 0.1em;}
 
@@ -138,12 +148,14 @@ input#idCard:hover {
 .btn-opcion {
     font-size: 36px;
     margin-bottom: 28px;
-    padding: 22px;
-    border: 1px solid white;
+    padding: 22px 33px;
+    /*border: 1px solid white;*/
     margin-right: 70px;
     margin-left: 70px;
-    /*background-color: #2972b1;*/
+    background-color: var(--color-h);
     color: #fff;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+    border-radius:13px ;
 }
 
 #proveedores {
@@ -208,14 +220,20 @@ h4.turnos-info  {
 }
 
 h4.turnos-horario-info {
-  font-size: 16px;
+  font-size: 20px;
   text-align: left;
   margin-top: 0;
+  color: var(--color-j) !important;
+  border-top: 1px solid #555;
+  padding-top: 40px;
 }
 
-.tarjeta h4 {
+.tarjeta h4, .tarjeta h3 {
   margin-top: 0 !important;
+  color: var(--color-i);
 }
+
+
 
 .divide5 {height: 5px;}
 .divide10 {height: 10px;}
@@ -324,8 +342,9 @@ ul {
 
 /* horario */
 
+/*
 .horario-header {
-  background: rgba(96,92,168,1);
+background: rgba(96,92,168,1);
 background: -moz-linear-gradient(left, rgba(96,92,168,1) 0%, rgba(2,71,145,1) 100%);
 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(96,92,168,1)), color-stop(100%, rgba(2,71,145,1)));
 background: -webkit-linear-gradient(left, rgba(96,92,168,1) 0%, rgba(2,71,145,1) 100%);
@@ -334,6 +353,7 @@ background: -ms-linear-gradient(left, rgba(96,92,168,1) 0%, rgba(2,71,145,1) 100
 background: linear-gradient(to right, rgba(96,92,168,1) 0%, rgba(2,71,145,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#605ca8', endColorstr='#024791', GradientType=1 );
 }
+*/
 
 #horarios {margin-top: 30px; text-align: center;}
 
@@ -360,16 +380,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#605ca8', end
 
 .panel-body h1 {
   color: white;
-  font-size: 54px;
-  font-weight: 600;
+  font-size: 50px;
+  /*font-weight: 600;*/
+  line-height: 1.6;
 }
 
 .panel-primary > .panel-heading {
   color: #fff;
   background-color: var(--color-c);
-  border-color: #428bca;
   border-radius: 15px 15px 0 0;
   padding-top: 8px;
+  min-height: 102px;
 }
 
 .container {
@@ -394,9 +415,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#605ca8', end
 
 #clockd p {color:#999 !important;}
 
-
 .btn-opcion:hover {
-  /* Utilizar la clase de animación y la duración especificada en los atributos data-* */
-  animation-name: var(--animation);
-  animation-duration: var(--duration);
+  color: var(--color-g);
+  /*animation: pulse 2s; */
+}
+
+.tarjeta h1 {
+  line-height: 1 !important;
 }
