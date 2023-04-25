@@ -19,7 +19,7 @@
 
     <div class="col-md-12" style="text-align: center; margin-top: 60px;">
 
-        <h1>Hola, <span id='saludo'></span></h1>
+        <h1 style='font-size:52px';>Hola, <span id='saludo'></span></h1>
         <h2>por favor, seleccioná una opción...</h2>
         <div class="divide80"></div>
 

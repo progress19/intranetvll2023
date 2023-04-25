@@ -21,11 +21,10 @@
     </div>
     
     <div class="panel-footer">Todos los derechos reservados por Valle de las Leñas S.A. - Desarrollado por ML.-
-
-    <span style="float: right;right;color: var(--color-g);"><?php echo Puestos::getNombrePuestoIp(get_client_ip_env ()); ?></span>
-    <input class="pull-right" type="text" name="idCard" id="idCard" onchange="buscarPersonalIdCard(this.value,1)" >
-    <input class="pull-right" type="hidden" name="tipoUrl" id="tipoUrl" value="1" > <!-- 1 comedor / 2 horario -->
-</div>
+        <span style="float: right;right;color: var(--color-g);"><?php echo Puestos::getNombrePuestoIp(get_client_ip_env ()); ?></span>
+        <input class="pull-right" type="text" name="idCard" id="idCard" onchange="buscarPersonalIdCard(this.value,1)" >
+        <input class="pull-right" type="hidden" name="tipoUrl" id="tipoUrl" value="1" > <!-- 1 comedor / 2 horario -->
+    </div>
     
 </div>
 

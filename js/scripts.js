@@ -20,7 +20,7 @@ function buscarPersonalIdCard(idCard,app) { // app 1 => Comedor / 2 => Horario
             $("#datosEmpleado").html(datos);
             $("#idCard").val('');
             $("#pass").val('');
-            $('#mensajes h2').html('POR FAVOR, INGRESA TU CONTRASEÑA...');
+            $('#mensajes h2').html('Por favor, ingresa tu contraseña...');
             setTimeout(function() { $('.active-turno').addClass('animated bounceIn');},600);
             setTimeout(function() { $('#pass').addClass('animated shake');},600);
             clearTimeout(focusIdCard);

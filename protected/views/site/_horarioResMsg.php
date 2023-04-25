@@ -4,7 +4,7 @@
 	horario_time = setTimeout('recarga()', 7000) /* 7000 */
 </script>
 
-<div class="col-md-8 col-md-offset-2 tarjeta">
+<div class="col-md-6 col-md-offset-3 tarjeta">
 
 	<div class="col-md-3">
 
@@ -17,18 +17,13 @@
 	</div>
 
 	<div class="col-md-9">
-
 		<h1><?php echo $empleado->nombre; ?></h1>
 		<h4>N° Legajo : <?php echo $empleado->legajo; ?></h4>
 		<h3>Sector : <?php echo $empleado->sector_rel->nombre; ?></h3>
 		<h4 class="turnos-horario-info"> 
-			
 			<p><b>Turno mañana: </b>Entrada: (<?php echo $empleado->em ?>hs.) - Salida: (<?php echo $empleado->sm ?>hs.)</p>
-
 			<p><b>Turno tarde: </b>Entrada: (<?php echo $empleado->et ?>hs.) - Salida: (<?php echo $empleado->st ?>hs.)</p>
-
 		</h4>
-
 	</div>
 
 </div>

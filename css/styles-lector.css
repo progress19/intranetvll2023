@@ -86,10 +86,11 @@ body {background-color:var(--color-a);color: #3E3E3E;}
 
 .tarjeta {
   color: white;
-  padding: 20px 0 20px 10px;
+  padding: 16px 0 20px 1px;
   background-color: var(--color-b);
   border-radius: 13px;
   box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+  min-height: 267px;
 }
 
 .panel-heading h3 {margin-top: 10px; letter-spacing: 0.1em;}
@@ -134,15 +135,18 @@ input#idCard:hover {
 }
 
 .btn-horarios {
-    font-size: 30px;
+    font-size: 26px;
     margin-bottom: 28px;
-    /*width: 250px;*/
     padding: 22px;
-    border: 1px solid #ccc;
-    margin-right: 70px;
-    margin-left: 70px;
     background-color: #605ca8 !important;
     color: white !important;
+    font-family: 'Poppins';
+    border-radius: 13px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+    display: block;
+    min-width: 230px;
+    margin: 0 auto;
+    margin-bottom: 33px;
 }
 
 .btn-opcion {
@@ -185,20 +189,19 @@ input#idCard:hover {
 .badge {
     display: inline-block;
     min-width: 10px;
-    padding: 6px 15px;
-    font-size: 24px;
+    padding: 6px 6px;
+    font-size: 17px;
     font-weight: 700;
     color: #fff;
     line-height: 1;
     vertical-align: baseline;
     white-space: nowrap;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 6px;
 }
 
 .badge-green {background-color: #8AA838;}
 .badge-red {background-color: red;}
-
 
 .active-turno {
     min-width: 10px;
@@ -220,12 +223,12 @@ h4.turnos-info  {
 }
 
 h4.turnos-horario-info {
-  font-size: 20px;
+  font-size: 15px;
   text-align: left;
   margin-top: 0;
-  color: var(--color-j) !important;
+  color: var(--color-g) !important;
   border-top: 1px solid #555;
-  padding-top: 40px;
+  padding-top: 25px;
 }
 
 .tarjeta h4, .tarjeta h3 {
@@ -281,19 +284,16 @@ ul {
 .press {
   display: inline-block;
   width: calc(33.33% - 28px);
-  margin: 0 10px 10px;
+  margin: 0 10px 19px;
 }
 
 .button {
   width: 95%;
-  float: left;
   display: inline-block;
-  /*background: linear-gradient(#505050, #383838);*/
-  background: linear-gradient(#605ca8, #605ca8);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);,0 2px 2px rgba(0,0,0,0.4);
-  /*border: 1px solid #000;*/
   padding: 5px;
-  box-shadow: 2px 2px 5px #999
+  background-color: var(--color-h);
+  border-radius: 8px;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 .button:hover {
@@ -325,10 +325,10 @@ ul {
   margin: 0 !important;
   color: #fff;
   text-shadow: 1px 1px #000;
-  font-size: 35px;
+  font-size: 41px;
   line-height: 60px;
+  font-family: 'Poppins';
 }
-
 
 .imprimiendo {text-align: center;}
 
@@ -380,7 +380,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#605ca8', end
 
 .panel-body h1 {
   color: white;
-  font-size: 50px;
+  font-size: 35px;
   /*font-weight: 600;*/
   line-height: 1.6;
 }
@@ -423,3 +423,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#605ca8', end
 .tarjeta h1 {
   line-height: 1 !important;
 }
+
+#horarios h2, .mensaje-comedor {
+  font-family: 'Poppins';
+}
+
+.row-info-tickets {
+  border-bottom: 1px solid #555;
+}
+
+#foto-card {border-radius: 8px;}
