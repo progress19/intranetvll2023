@@ -31,7 +31,7 @@ switch ($horario->idTipo) {
 <div class="panel-body">
 
 	<div class="imprimiendo">	    	
-    	<h2>IMPRIMIENDO...</h2>
+    	<h2>Imprimiendo...</h2>
 
 		<img src="images/loading.gif" alt="" />
 

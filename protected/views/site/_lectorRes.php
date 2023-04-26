@@ -35,8 +35,8 @@
 			</div>
 
 			<div class="col-md-5" style="text-align: center;">
-				<h4>Desayunos: <span class="badge <?php echo ($empleado->desayunos > 5) ? 'badge-green' : 'badge-red' ?>"><?php echo $empleado->desayunos; ?></span></h4>
-				<h4>Comidas: <span class="badge <?php echo ($empleado->comidas > 5) ? 'badge-green' : 'badge-red' ?>"><?php echo $empleado->comidas; ?></span>
+				<h4>Desayunos <span class="badge <?php echo ($empleado->desayunos > 5) ? 'badge-green' : 'badge-red' ?>"><?php echo $empleado->desayunos; ?></span></h4>
+				<h4>Comidas <span class="badge <?php echo ($empleado->comidas > 5) ? 'badge-green' : 'badge-red' ?>"><?php echo $empleado->comidas; ?></span>
 				</h4>
 			</div>
 		</div>
@@ -81,8 +81,8 @@
 				
 					<div class="col-md-12 center">
 						<i class="fas fa-thumbs-down" style="font-size: 85px; color: white"></i><br><br>
-						<h2 class="center">YA GENERASTE LA CANTIDAD DE TICKETS</h2>
-						<h2 class="center">PERMITIDOS PARA ESTE TURNO.</h2>
+						<h2 class="center">Ya generaste la cantidad de tickets</h2>
+						<h2 class="center">permitidos para este turno.</h2>
 					</div> 
 
 				<script>setInterval('recarga()',7000)</script>
@@ -93,7 +93,7 @@
 
 					<div class="col-md-12 center">
 						<i class="fas fa-thumbs-down" style="font-size: 85px; color: white"></i><br><br>
-						<h2 class="center">SALDO INSUFICIENTE PARA GENERAR EL TICKET.</h2>
+						<h2 class="center">Saldo insuficiente para generar el ticket.</h2>
 					</div>
 
 					<script>setInterval('recarga()',5000)</script>

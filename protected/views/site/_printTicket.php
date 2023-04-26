@@ -31,18 +31,13 @@
 <div class="panel-body">
 
 	<div class="imprimiendo">	    	
-    	<h2>IMPRIMIENDO...</h2>
-
-		<img src="images/loading.gif" alt="" />
-
-    	<h2>POR FAVOR, RETIRÁ TU TICKET AL FINALIZAR</h2>
-    	<h2>GRACIAS!</h2>
-
+    	<h2>Imprimiendo...</h2>
+		<img src="<?php echo URLRAIZ ?>/images/loading.gif" alt="" />
+    	<h2>Por favor, retirá tu ticket al finalizar...</h2>
+    	<h2>Gracias!</h2>
 	</div>
 	<div class="divide20"></div>
-		
 		<div class="col-md-4 col-md-offset-4">
-
 		<div class="ticket-contenedor">
 		<div class="ticket" id="ticket">
 

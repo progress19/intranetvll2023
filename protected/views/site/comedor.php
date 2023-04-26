@@ -6,7 +6,7 @@
         <a href=" <?php echo URLRAIZ.'/lector' ?> "><img src="<?php echo URLRAIZ ?>/images/logo_las_lenas.png" style="height: 70px; margin-top:6px" alt=""></a>
        	</div>
     	<div class="col-md-6 pull-right">
-    		<a href=" <?php echo URLRAIZ.'/lector' ?> "><h2 style="text-align: right;color: var(--color-f);">SISTEMA COMEDOR VLL</h2></a><span id="clock"></span>
+    		<a href=" <?php echo URLRAIZ.'/lector' ?> "><h2 style="text-align: right;color: var(--color-f);">Sistema Comedor VLL</h2></a><span id="clock"></span>
     	</div>
     </div>
     <div class="panel-body">
@@ -17,6 +17,8 @@
 		</div>
 	   	<div id="loading-card"></div>
     	<div id="datosEmpleado"></div>
+
+        <img style='position: absolute;height: 125px;bottom:81px; right:44px' class='animated pulse' src='images/logo2023.jpg'>
     
     </div>
     

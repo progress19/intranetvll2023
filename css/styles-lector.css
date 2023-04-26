@@ -99,7 +99,7 @@ body {background-color:var(--color-a);color: #3E3E3E;}
 
 input {font-size: 45px; margin-top: 15px}
 
-.noCardFind {font-size: 80px; text-align: center; padding-top: 100px;}
+.noCardFind {font-size: 80px; text-align: center; }
 
 .noCardFind h1 {text-align: center !important;}
 
@@ -158,14 +158,13 @@ input#idCard:hover {
     margin-left: 70px;
     background-color: var(--color-h);
     color: #fff;
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1) !important;
     border-radius:13px ;
 }
 
 #proveedores {
   text-align: center;
-  top: 320px;
-  position: absolute;
+  top: 20px;
   width: 100%;
   z-index: 9999;
 }
@@ -179,12 +178,17 @@ input#idCard:hover {
     margin-bottom: 28px;
     width: 285px;
     padding-top: 4px;
-    border: 1px solid #ccc;
     margin-right: 20px;
     margin-left: 20px;
-    background-color: #CCC;
+    background-color: var(--color-h);
     text-transform: uppercase;
-}
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1) !important;
+    color: white;
+  }
+
+  .btn-proveedores:hover {
+    color: white;
+    }
 
 .badge {
     display: inline-block;
@@ -236,8 +240,6 @@ h4.turnos-horario-info {
   color: var(--color-i);
 }
 
-
-
 .divide5 {height: 5px;}
 .divide10 {height: 10px;}
 .divide20 {height: 20px;}
@@ -245,10 +247,7 @@ h4.turnos-horario-info {
 .divide80 {height: 80px;}
 .divide160 {height: 160px;}
 
-.turnos-info p {
-  font-size: 19px;
-}
-
+.turnos-info p { font-size: 17px; }
 
 /* virtual keypad */
 
@@ -293,7 +292,8 @@ ul {
   padding: 5px;
   background-color: var(--color-h);
   border-radius: 8px;
-  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1) !important;
+  vertical-align: initial !important;
 }
 
 .button:hover {
@@ -409,17 +409,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#605ca8', end
   -moz-box-shadow: 3px -3px 34px 14px rgba(0,0,0,0.75);
 }
 
-.panel-footer {
-  border-top: 0;
-}
+.panel-footer { border-top: 0;}
 
 #clockd p {color:#999 !important;}
 
 .btn-opcion:hover {
-  color: var(--color-g);
-  /*animation: pulse 2s; */
-}
+  color: white !important;
+  }
 
+/*
+.btn-opcion:pulse {
+  color: white !important;
+
+}
+*/
 .tarjeta h1 {
   line-height: 1 !important;
 }
@@ -433,3 +436,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#605ca8', end
 }
 
 #foto-card {border-radius: 8px;}
+
+a:focus { outline: none !important; }
+
+#pass {
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-d);
+  padding: 0 15px;
+}

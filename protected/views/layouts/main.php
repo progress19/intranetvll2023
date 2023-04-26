@@ -18,6 +18,7 @@
     <!-- Theme CSS -->  
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/styles-lector.css">
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/animate.css">
+    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/hover-min.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

@@ -25,15 +25,15 @@
 
         <div class="col-md-12">
 
-            <a href="horario" type="button" class="btn move btn-opcion" autocomplete="off"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> HORARIO</a>
+            <a href="horario" type="button" class="btn move btn-opcion hvr-grow" autocomplete="off"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> HORARIO</a>
 
-            <a href="comedor" type="button" class="btn move btn-opcion" autocomplete="off"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> COMEDOR</a>
+            <a href="comedor" type="button" class="btn move btn-opcion hvr-grow" autocomplete="off"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> COMEDOR</a>
 
         </div>
 
     </div>
     
-    <img style='position: absolute;height: 159px;bottom:81px; right:44px' class='animated pulse' src='images/logo2023.jpg'>
+    <img style='position: absolute;height: 125px;bottom:81px; right:44px' class='animated pulse' src='images/logo2023.jpg'>
 
 </div>
     

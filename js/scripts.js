@@ -62,18 +62,18 @@ function autenticacion (idCard,pass) {
 
             if (url==1) { //comedor
 
-                    $("#foto-card").animate({height: 200},100);
-                    $("#datosEmpleado h1").animate({fontSize: 24},150);
-                    $("#datosEmpleado h1").animate({marginTop: 0},200);
-                    $("#datosEmpleado h4").animate({fontSize: 15},250);
-                    $("#datosEmpleado h3").animate({fontSize: 17},300);
-                    $("#datosEmpleado h5").animate({fontSize: 11},300);
-                    $("#datosEmpleado hr").animate({marginTop: 10},300);
-                    $(".turnos-info p").animate({fontSize: 17},350);
-                    $(".badge-green").animate({fontSize: 18},350);
-                    $(".tarjeta").animate({height: 240},350);
-                    $("#"+div).animate({top: 260},300);
-                    $("#"+div+' h2').addClass('animated wobble');
+                   //$("#foto-card").animate({height: 200},100);
+                    //$("#datosEmpleado h1").animate({fontSize: 24},150);
+                    //$("#datosEmpleado h1").animate({marginTop: 0},200);
+                    //$("#datosEmpleado h4").animate({fontSize: 15},250);
+                    //$("#datosEmpleado h3").animate({fontSize: 17},300);
+                    //$("#datosEmpleado h5").animate({fontSize: 11},300);
+                    //$("#datosEmpleado hr").animate({marginTop: 10},300);
+                    //$(".turnos-info p").animate({fontSize: 17},350);
+                    //$(".badge-green").animate({fontSize: 18},350);
+                    //$(".tarjeta").animate({height: 240},350);
+                    //$("#"+div).animate({top: 260},300);
+                    //$("#"+div+' h2').addClass('animated wobble');
                 }
 
                     $('#errorPass').addClass('animated bounceOutLeft');
@@ -92,7 +92,7 @@ function autenticacion (idCard,pass) {
 
             $('#errorPass').addClass('animated shake');
             $('#mensajes H2').addClass('displayNone');
-            $('#errorPass').html('<h2 style="color: red;text-align: center !important;"><i class="fas fa-thumbs-down"></i> CONTRASEÑA INCORRECTA, REINTENTA...</h2>');
+            $('#errorPass').html('<h2 style="color: white;text-align: center !important;"><i class="fas fa-thumbs-down"></i> Contraseña incorrecta, reintenta...</h2>');
             $('#errorPass').addClass('animated shake');
 
               $.ajax({   
