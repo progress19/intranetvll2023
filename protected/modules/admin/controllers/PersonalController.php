@@ -316,7 +316,7 @@ class PersonalController extends Controller {
 
 		$fecha_formateada = '';
 
-		if	(Yii::app()->user->roles!='supervisor') {
+		if	( Yii::app()->user->roles!='supervisor' ) {
 			$wfec = explode("-",$fecha);
 			$fecha_format = "$wfec[2]-$wfec[1]-$wfec[0]";
 			//code para comprobar si el supervisor-RRHH ingresa la fecha manualmente
@@ -333,13 +333,14 @@ class PersonalController extends Controller {
 			$estado = Estados::model()->findByPk($idEstado);	
 
 			/* manual para administrador y supervisor-rrhh*/
-			if (Yii::app()->user->roles=='administrador' or Yii::app()->user->roles=='supervisor-rrhh') {
+			if ( Yii::app()->user->roles=='administrador' or Yii::app()->user->roles=='supervisor-rrhh' ) {
 				$hoy = $check.$fecha;
 			}
 
 			/* automatica del dia para supervisor*/
-			if (Yii::app()->user->roles=='supervisor') {
+			if ( Yii::app()->user->roles=='supervisor' ) {
 				$hoy = $check.date('d-m-Y');
+				$fecha = date('d-m-Y');
 				$fecha_format = date('Y-m-d');
 			}
 			

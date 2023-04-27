@@ -302,7 +302,7 @@ class SiteController extends Controller {
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
 
-			LogEventos::addLog(1); 
+			//LogEventos::addLog(1); 
 	    	$this->redirect(Yii::app()->homeUrl.'admin/home');
 
 		}
@@ -314,7 +314,7 @@ class SiteController extends Controller {
 	 * Logs out the current user and redirect to homepage.
 	 */
 	public function actionLogout()	{
-		LogEventos::addLog(2); 
+		//LogEventos::addLog(2); 
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl.'site/login');
 	}

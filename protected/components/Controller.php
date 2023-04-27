@@ -255,9 +255,9 @@ function get_client_ip_env() {
 
 		$mail->setFrom('intranet@laslenas.com', 'Valle de las Leñas');
 
-//		$mail->AddAddress('aleonforte@laslenas.com');
+		$mail->AddAddress('aleonforte@laslenas.com');
 //		$mail->AddAddress('dbordon@laslenas.com');
-		$mail->AddAddress('mauriciolav@gmail.com');
+//		$mail->AddAddress('mauriciolav@gmail.com');
 		
 		$mail->setSubject( $subjet );
 

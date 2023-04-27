@@ -19,7 +19,7 @@
 
     <div class="col-md-12" style="text-align: center; margin-top: 60px;">
 
-        <h1 style='font-size:52px';>Hola, <span id='saludo'></span></h1>
+        <h1 style='font-size:52px'>Hola, <span id='saludo'></span></h1>
         <h2>por favor, seleccioná una opción...</h2>
         <div class="divide80"></div>
 
@@ -68,7 +68,7 @@
     // Verificamos la hora y mostramos el saludo adecuado en el div
     if (hora >= 6 && hora < 12) {
     divSaludo.textContent = buenDia;
-    } else if (hora >= 12 && hora < 18) {
+    } else if (hora >= 12 && hora < 20) {
     divSaludo.textContent = buenasTardes;
     } else {
     divSaludo.textContent = buenasNoches;
