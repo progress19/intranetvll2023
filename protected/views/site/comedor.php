@@ -18,7 +18,7 @@
 	   	<div id="loading-card"></div>
     	<div id="datosEmpleado"></div>
 
-        <img style='position: absolute;height: 125px;bottom:81px; right:44px' class='animated pulse' src='images/logo2023.jpg'>
+        <img id='logo23' style='position: absolute;height: 80px;bottom:81px; right:44px' class='animated pulse' src='images/logo2023.jpg'>
     
     </div>
     
@@ -32,14 +32,14 @@
 
 <script>
 
-$(document).ready(function() {    
-    document.getElementById("idCard").focus();
-    $("#idCard").val('');
-    inicioComedor = setTimeout('recarga()', 7000)
-    //focusIdCarda = setInterval(focusIdCard, 3000);
-    setInterval(recarga, 7000000);//recarga home cada 2horas
-    $('#popoverData').popover();
-});
+    $(document).ready(function() {    
+        document.getElementById("idCard").focus();
+        $("#idCard").val('');
+        inicioComedor = setTimeout('recarga()', 7000)
+        focusIdCarda = setInterval(focusIdCard, 3000);
+        setInterval(recarga, 7000000);//recarga home cada 2horas
+        $('#popoverData').popover();
+    });
 
 </script>
 

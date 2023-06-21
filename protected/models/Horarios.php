@@ -106,7 +106,6 @@ class Horarios extends CActiveRecord
 			$criteria->addBetweenCondition("DATE_FORMAT(`t`.`fecha`, '%Y-%m-%d')", ''.Yii::app()->dateFormatter->format("yyyy-MM-dd", $this->desde).'', ''.Yii::app()->dateFormatter->format("yyyy-MM-dd", $this->hasta).'');
 
 		$sort=new CSort();
-
 		$sort->defaultOrder = '`t`.`idHorario` DESC';
 
 		return new CActiveDataProvider($this, array(

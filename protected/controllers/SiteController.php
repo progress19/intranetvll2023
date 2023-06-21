@@ -2,6 +2,34 @@
 
 class SiteController extends Controller {
 
+	public function actionGenerateTickets() {
+
+		$tarjetaId = '010101';
+		$legajo = '010101';
+		$idProveedor = 24;
+		$idSector = 36;
+		$tipo = 1;
+		$fecha = '2023-06-17 17:13:28';
+		
+		$batchSize = 50; // Número de registros por lote
+		
+		for ($i = 1; $i <= 10; $i++) {
+			$tickets = new Tickets();
+			$tickets->tarjetaId = $tarjetaId;
+			$tickets->legajo = $legajo;
+			$tickets->idProveedor = $idProveedor;
+			$tickets->idSector = $idSector;
+			$tickets->tipo = $tipo;
+			$tickets->fecha = $fecha;
+			$tickets->save(false); // Evitar validaciones para una inserción más rápida
+		
+			if ($i % $batchSize === 0) {
+				Yii::app()->db->createCommand('COMMIT')->execute(); // Hacer commit para cada lote
+			}
+		}
+		Yii::app()->db->createCommand('COMMIT')->execute(); // Hacer commit final
+	}
+
 	/*bk start */
 
 	public $tables = array();
@@ -530,7 +558,7 @@ class SiteController extends Controller {
 
  		$empleado = Personal::model()->find('LOWER(tarjetaId)=?',array($idCard));
 
- 		if ( md5($pass)===$empleado->password) {
+ 		if ( md5($pass)===$empleado->password ) {
  			Yii::app()->getSession()->add('idCard', $idCard); //llevo idCard a session para recuperarla al grabar ticket
  			Yii::app()->getSession()->add('legajo', $empleado->legajo);
  			echo 1;
@@ -540,8 +568,43 @@ class SiteController extends Controller {
 
 	public function actionRenderProveedores() {
 
+		switch ( Yii::app()->getSession()->get('tipo') ) {
+			
+			case '1': // desayuno
+				$proveedores = Proveedores::model()->findAllByAttributes(
+					array(
+						'desayuno' => 1,
+						'estado'=> 1
+					),
+					array('order'=>'nombre ASC'));
+				break;
+			
+			case '2': // almuerzo
+				$proveedores = Proveedores::model()->findAllByAttributes(
+					array(
+						'almuerzo' => 1,
+						'estado'=> 1
+					),
+					array('order'=>'nombre ASC'));
+				break;
+			
+			case '3': // cena
+				$proveedores = Proveedores::model()->findAllByAttributes(
+					array(
+						'cena' => 1,
+						'estado'=> 1
+					),
+					array('order'=>'nombre ASC'));
+				break;
+
+		}
+
+/*
+		echo Yii::app()->getSession()->get('tipo');die();
+
 		$proveedores = Proveedores::model()->findAllByAttributes(
     	array('estado'=>1),array('order'=>'nombre ASC'));
+*/
       	
 		return $this->renderPartial('_ProveedorSelect', array('proveedores' => $proveedores ));
 	

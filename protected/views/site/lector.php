@@ -4,6 +4,8 @@
     
     <div class="panel-heading">
     	<div class="col-md-6">
+        
+
     		<a href=" <?php echo URLRAIZ.'/lector' ?> "><img src="<?php echo URLRAIZ ?>/images/logo_las_lenas.png" style="height: 70px; margin-top:6px" alt=""></a>
        	</div>
     	<div class="col-md-6 pull-right">

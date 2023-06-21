@@ -32,6 +32,29 @@
 	</div>
 	<div class="clearfix"></div>
 
+	<div class="col-md-2">
+		<div class="form-group">
+			<?php echo $form->labelEx($model,'desayuno', array('style' => 'padding-right: 10px;')); ?>
+			<?php echo $form->checkBox($model,'desayuno', array('value'=>'1', 'uncheckValue'=>'0')); ?>
+		</div>
+	</div>
+
+	<div class="col-md-2">
+		<div class="form-group">
+			<?php echo $form->labelEx($model,'almuerzo', array('style' => 'padding-right: 10px;')); ?>
+			<?php echo $form->checkBox($model,'almuerzo', array('value'=>'1', 'uncheckValue'=>'0')); ?>
+		</div>
+	</div>
+
+	<div class="col-md-2">
+		<div class="form-group">
+			<?php echo $form->labelEx($model,'cena', array('style' => 'padding-right: 10px;')); ?>
+			<?php echo $form->checkBox($model,'cena', array('value'=>'1', 'uncheckValue'=>'0')); ?>
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
 	<div class="col-md-3">
 		<div class="form-group">
 	       <?php echo $form->labelEx($model,'Estado'); ?>

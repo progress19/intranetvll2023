@@ -66,16 +66,8 @@
 			<?php if ($saldo==1): // si tiene saldo... ?>
 
 				<?php if ($simultaneos==1): ?>
-				
-				<div class="col-md-10 col-md-offset-1" id="conte-keypad">
-					<div class="col-md-6">
-						<?php echo $this->renderPartial('_keypad', array('tarjetaId' => $empleado->tarjetaId));?>
-					</div>	
-					
-					<div class="col-md-6">	
-						<?php echo $this->renderPartial('_autenticacion', array('tarjetaId' => $empleado->tarjetaId, 'app' => 1));?>
-					</div>
-				</div>
+									
+					<script>no_autenticacion()</script>
 				
 				<?php else: ?>
 				
@@ -124,11 +116,3 @@
 	<?php endif // if segun estado asistencia ?>	
 
 </div>
-
-
-
-
-
-
-
-

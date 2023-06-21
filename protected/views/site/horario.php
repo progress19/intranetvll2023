@@ -18,7 +18,7 @@
 	   	<div id="loading-card"></div>
     	<div id="datosEmpleado"></div>
 
-        <img style='position: absolute;height: 132px;bottom:81px; right:44px' class='animated fadeIn' src='images/logo2023.jpg'>
+        <img id='logo23' style='position: absolute;height: 80px;bottom:81px; right:44px' class='animated fadeIn' src='images/logo2023.jpg'>
     
     </div>
     
@@ -32,6 +32,7 @@
 </div>
 
 <script>
+
     $(document).ready(function() {    
         document.getElementById("idCard").focus();
         $("#idCard").val('');
@@ -40,6 +41,7 @@
         setInterval(recarga_horario, 7000000);  //recarga home cada 2 horas
         $('#popoverData').popover();
     });
+
 </script>
 
 <a href=""></a>

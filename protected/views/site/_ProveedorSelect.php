@@ -1,5 +1,5 @@
 <script>
-    clearTimeout(autenticacion_time);
+    //clearTimeout(autenticacion_time); activar si va autenticacion
     proveedor_time = setTimeout('recarga()',12000)
 </script>
 

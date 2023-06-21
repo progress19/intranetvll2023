@@ -127,11 +127,11 @@ $this->breadcrumbs=array(
   ),
 
     array(  
-            'class' => 'booster.widgets.TbToggleColumn',
-            'name' => 'activo',
-            'header' => 'Activo',
-            'filter'=>array('1'=>'Activado','0'=>'Desactivado'),
-        ),
+      'class' => 'booster.widgets.TbToggleColumn',
+      'name' => 'activo',
+      'header' => 'Activo',
+      'filter'=>array('1'=>'Activado','0'=>'Desactivado'),
+    ),
 
 	 array(
 	    'htmlOptions' => array('nowrap'=>'nowrap'),

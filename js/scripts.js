@@ -12,8 +12,9 @@ function buscarPersonalIdCard(idCard,app) { // app 1 => Comedor / 2 => Horario
     $.ajax({   
         url: "site/buscarPersonalIdCardAjax",   
         data: "idCard="+idCard+"&app="+app,   
-        success: function(datos){     
+        success: function(datos){    
        
+            $('#logo23').fadeOut();
             $('#mensajeInicial').fadeOut(); 
             $('#loading-card').hide();
             $('#datosEmpleado').addClass('animated bounceInLeft');
@@ -35,7 +36,9 @@ function autenticacion (idCard,pass) {
         data: "idCard="+idCard+"&pass="+pass,   
         success: function(datos){   
             
-        if (datos==1) {
+        // 1 = auth ok
+        
+        if (datos==1) { 
             
                 $('.container-keypad').addClass('animated bounceOutLeft');
                 $('#mensajes h2').addClass('animated bounceOutLeft');
@@ -114,19 +117,29 @@ function autenticacion (idCard,pass) {
 
 }
 
-function focusIdCard() {
+function no_autenticacion () {
+    var div = 'proveedores';
+    $.ajax({   
+        url:  'site/renderProveedores',   
+        success: function(datos){   
+            $('#'+div).addClass('animated bounceInLeft');
+            $('#'+div).html(datos);
+            $("#pass").val('');
+            $("#"+div).animate({top: 260},300);
+            $("#"+div+' h2').addClass('animated wobble');
+          } 
+    });
+}
 
+function focusIdCard() {
     document.getElementById("idCard").focus();
     $("#idCard").val('');
-    }
+}
 
 function focusIdCarda() {
-
     document.getElementById("idCard").focus();
     $("#idCard").val('');
-
     var focusIdCard = setTimeout(focusIdCarda(),3000);
-
 }
 
 function om() { //check terminal ip 'fraude'

@@ -41,7 +41,7 @@
 	<h2 style='margin-top:0'>Seleccioná la opción...</h2>
 	<div class="divide20"></div>
 
-	<div class="col-md-4 col-md-offset-2">
+	<div class="col-md-6 col-md-offset-0">
 
 		<?php if ($em) {$class_btn_em = 'disabled';} else {$class_btn_em = '';} ?>
 		<?php if ($sm) {$class_btn_sm = 'disabled';} else {$class_btn_sm = '';} ?>
@@ -60,7 +60,7 @@
 
 	</div>
 
-<div class="col-md-4">
+<div class="col-md-6">
 
 	<h2 style='margin:0 0 20px 0'>Turno tarde</h2>
 

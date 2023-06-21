@@ -1,0 +1,447 @@
+/*
+#0d131c
+#161f2c
+#111923
+#202a39
+
+ed1d49
+*/
+:root {
+  --color-a: #0d131c; 
+  --color-b: #161f2c; 
+  --color-c: #111923; 
+  --color-d: #202a39; 
+  --color-e: #ed1d49;
+  --color-f: #0089c0;
+  --color-g: #f6971c;
+  --color-h: #2972b1;
+
+  --color-i: #55657e;
+  --color-j: #1bb83d;
+
+}
+
+@font-face {
+    font-family: futuraHeavy;
+    src: url('../fonts/Futura Heavy font.ttf');
+}
+
+@font-face {
+    font-family: futuraMedium;
+    src: url('../fonts/futura medium bt.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {color: #CCC;}
+
+body {background-color:var(--color-a);color: #3E3E3E;}
+
+.wrapper {
+  padding-top: 8px;
+  min-height: 100%;
+  background-color: var(--color-a);
+}
+
+.panel-heading {overflow: auto;padding: 5px 20px 5px 0; min-height: 100px;}	
+
+.panel-heading { font-family: 'futuraHeavy', sans-serif; }
+.panel-heading h2 {margin-top: 8px; margin-bottom: 5px}
+.panel-heading .fecha {color: #FFF; font-size: 22px; text-align: right;}
+
+.panel-body {
+	min-height: 707px;
+  background-color: var(--color-f);
+}
+
+.panel-body h1 {	
+	text-align: center;
+}
+
+.panel-footer {
+	font-size: 13px;
+}
+
+#loading-card {
+	text-align: center;
+	padding-top: 200px;
+  display: none;
+}
+
+#datosEmpleado {font-family: 'futuraMedium';}
+
+#datosEmpleado h1 {text-align: left !important; margin-top: 0;}
+
+#mensajeInicial {text-align: center;padding-top: 20px;}
+
+#mensajeInicial h2 {line-height: 1.5em; font-family: 'futuraHeavy'}
+
+.tarjeta {
+  color: white;
+  padding: 16px 0 20px 1px;
+  background-color: var(--color-b);
+  border-radius: 13px;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+  min-height: 267px;
+}
+
+.panel-heading h3 {margin-top: 10px; letter-spacing: 0.1em;}
+
+#autenticacion {text-align: center;}
+
+input {font-size: 45px; margin-top: 15px}
+
+.noCardFind {font-size: 80px; text-align: center; }
+
+.noCardFind h1 {text-align: center !important;}
+
+input#idCard {
+  font-size: 1px;
+  border-color: transparent;
+  color: #000;
+  margin-top: 0 !important;
+  background-color: transparent;
+  outline: none;
+}
+
+input#idCard:hover {
+    cursor: default; 
+}
+
+.displayNone {display: none;}
+
+.center {text-align: center;}
+
+#mensajes h2 {text-align: center; margin-bottom: 20px; line-height: 1.7em}
+
+.prove_seleccionado {
+  background-color: #605ca8 !important;
+  color: white !important;
+  box-shadow: 2px 2px 5px #999;
+}
+
+.prove_noseleccionado {
+  background-color: #ececec !important;
+  color: #605ca8 !important;
+  border: 1px solid #ccc;
+}
+
+.btn-horarios {
+    font-size: 26px;
+    margin-bottom: 28px;
+    padding: 22px;
+    background-color: #605ca8 !important;
+    color: white !important;
+    font-family: 'Poppins';
+    border-radius: 13px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+    display: block;
+    min-width: 230px;
+    margin: 0 auto;
+    margin-bottom: 33px;
+}
+
+.btn-opcion {
+    font-size: 36px;
+    margin-bottom: 28px;
+    padding: 22px 33px;
+    /*border: 1px solid white;*/
+    margin-right: 70px;
+    margin-left: 70px;
+    background-color: var(--color-h);
+    color: #fff;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1) !important;
+    border-radius:13px ;
+}
+
+#proveedores {
+  text-align: center;
+  top: 20px;
+  width: 100%;
+  z-index: 9999;
+}
+
+#proveedores h2 {
+  padding-bottom: 10px;
+}
+
+.btn-proveedores {
+    font-size: 25px;
+    margin-bottom: 28px;
+    width: 285px;
+    padding-top: 4px;
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: var(--color-h);
+    text-transform: uppercase;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1) !important;
+    color: white;
+  }
+
+  .btn-proveedores:hover {
+    color: white;
+    }
+
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 6px 6px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.badge-green {background-color: #8AA838;}
+.badge-red {background-color: red;}
+
+.active-turno {
+    min-width: 10px;
+    padding: 6px 3px 5px 3px;
+    font-size: 15px;
+    line-height: 1;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #929292;
+    color: #FFF;
+}
+
+h4.turnos-info  {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 0;
+}
+
+h4.turnos-horario-info {
+  font-size: 15px;
+  text-align: left;
+  margin-top: 0;
+  color: var(--color-g) !important;
+  border-top: 1px solid #555;
+  padding-top: 25px;
+}
+
+.tarjeta h4, .tarjeta h3 {
+  margin-top: 0 !important;
+  color: var(--color-i);
+}
+
+.divide5 {height: 5px;}
+.divide10 {height: 10px;}
+.divide20 {height: 20px;}
+.divide50 {height: 50px;}
+.divide80 {height: 80px;}
+.divide160 {height: 160px;}
+
+.turnos-info p { font-size: 17px; }
+
+/* virtual keypad */
+
+#mynumber {
+  background: #000;
+  border: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+  margin: 10px 10px 0;
+  box-sizing: border-box;
+  padding: 10px 30px;
+  font-size: 14vh;
+  color: #fff;
+  text-align: right;
+  width: calc(100% - 25px);
+  height: 20vh;
+  direction: rtl;
+  cursor: text;
+ }
+
+.container-keypad {
+  /*width: 100vw;*/ 
+}
+
+.keypad {
+  width: calc(100% - 15px);
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.press {
+  display: inline-block;
+  width: calc(33.33% - 28px);
+  margin: 0 10px 19px;
+}
+
+.button {
+  width: 95%;
+  display: inline-block;
+  padding: 5px;
+  background-color: var(--color-h);
+  border-radius: 8px;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1) !important;
+  vertical-align: initial !important;
+}
+
+.button:hover {
+  background: linear-gradient(#7a7a7a, #5c5c5c);
+}
+
+.button.clear {
+  background: linear-gradient(#014791, #014791);
+}
+
+.button.clear:hover {
+  background: linear-gradient(#815151, #742a2a);
+}
+
+.button.go {
+  background: linear-gradient(#929292, #929292);
+}
+
+.button.go:hover {
+  background: linear-gradient(#014791, #014791);
+}
+
+.press.nr {
+  width: 100%;
+}
+
+.number {
+  text-align: center;
+  margin: 0 !important;
+  color: #fff;
+  text-shadow: 1px 1px #000;
+  font-size: 41px;
+  line-height: 60px;
+  font-family: 'Poppins';
+}
+
+.imprimiendo {text-align: center;}
+
+.ticket-contenedor {
+    box-shadow: 2px 2px 5px #999;
+    padding: 10px;
+    border: 1px solid #999;
+    min-height: 300px;
+    width: 360px;
+}
+
+/* horario */
+
+/*
+.horario-header {
+background: rgba(96,92,168,1);
+background: -moz-linear-gradient(left, rgba(96,92,168,1) 0%, rgba(2,71,145,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(96,92,168,1)), color-stop(100%, rgba(2,71,145,1)));
+background: -webkit-linear-gradient(left, rgba(96,92,168,1) 0%, rgba(2,71,145,1) 100%);
+background: -o-linear-gradient(left, rgba(96,92,168,1) 0%, rgba(2,71,145,1) 100%);
+background: -ms-linear-gradient(left, rgba(96,92,168,1) 0%, rgba(2,71,145,1) 100%);
+background: linear-gradient(to right, rgba(96,92,168,1) 0%, rgba(2,71,145,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#605ca8', endColorstr='#024791', GradientType=1 );
+}
+*/
+
+#horarios {margin-top: 30px; text-align: center;}
+
+.btn[disabled] {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: .65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #ccc !important;
+    color: #222 !important;
+}
+
+.panel {
+  border: 0 !important;
+  background-color: transparent !important;
+  border-radius: 15px 15px 0 0;
+}
+
+.panel-body h2 {
+  color: white;
+}
+
+.panel-body h1 {
+  color: white;
+  font-size: 35px;
+  /*font-weight: 600;*/
+  line-height: 1.6;
+}
+
+.panel-primary > .panel-heading {
+  color: #fff;
+  background-color: var(--color-c);
+  border-radius: 15px 15px 0 0;
+  padding-top: 8px;
+  min-height: 102px;
+}
+
+.container {
+  width: 1250px !important;
+}
+
+.panel-footer {
+  background-color: var(--color-c);
+  color: white;
+}
+
+.panel-primary {
+  margin-top: 25px;
+  box-shadow: 3px -3px 34px 14px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 3px -3px 34px 14px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px -3px 34px 14px rgba(0,0,0,0.75);
+}
+
+.panel-footer { border-top: 0;}
+
+#clockd p {color:#999 !important;}
+
+.btn-opcion:hover {
+  color: white !important;
+  }
+
+/*
+.btn-opcion:pulse {
+  color: white !important;
+
+}
+*/
+.tarjeta h1 {
+  line-height: 1 !important;
+}
+
+#horarios h2, .mensaje-comedor {
+  font-family: 'Poppins';
+}
+
+.row-info-tickets {
+  border-bottom: 1px solid #555;
+}
+
+#foto-card {border-radius: 8px;}
+
+a:focus { outline: none !important; }
+
+#pass {
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-d);
+  padding: 0 15px;
+}

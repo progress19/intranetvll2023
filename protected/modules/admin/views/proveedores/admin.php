@@ -13,7 +13,7 @@ $this->breadcrumbs=array(
   'Administrador',);
 
 ?>  
-<div class="col-md-5">  
+<div class="col-md-9">  
 <div class="box box-primary">
     <div class="box-header">
 
@@ -31,7 +31,6 @@ $this->breadcrumbs=array(
     'responsiveTable' => true,
     'template'=>'{summary}{items}{pager}',
     'enablePagination' => true,
-   
     'columns'=>array(
 
       array(
@@ -39,7 +38,31 @@ $this->breadcrumbs=array(
        'value' => 'CHtml::link($data->nombre, Yii::app()->createUrl("admin/proveedores/update",array("id"=>$data->primaryKey)))',
        //'headerHtmlOptions'=>array('width'=>'300px'),
        'type'=>'raw'
-		),
+		  ),
+
+      array(
+        'name' => 'desayuno',
+        'type' => 'raw',
+        'value' => '$data->getEstadoHabilitado($data->desayuno)',
+        'filter'=>array('1'=>'Habilitado','0'=>'Deshabilitado'),
+        'htmlOptions' => array('style' => 'text-align:center'),
+      ),
+
+      array(
+        'name' => 'almuerzo',
+        'type' => 'raw',
+        'value' => '$data->getEstadoHabilitado($data->almuerzo)',
+        'filter'=>array('1'=>'Habilitado','0'=>'Deshabilitado'),
+        'htmlOptions' => array('style' => 'text-align:center'),
+      ),
+
+      array(
+        'name' => 'cena',
+        'type' => 'raw',
+        'value' => '$data->getEstadoHabilitado($data->cena)',
+        'filter'=>array('1'=>'Habilitado','0'=>'Deshabilitado'),
+        'htmlOptions' => array('style' => 'text-align:center'),
+      ),
 
     array(  
         'class' => 'booster.widgets.TbToggleColumn',

@@ -28,7 +28,7 @@ class Proveedores extends CActiveRecord
 		return array(
 			array('nombre, estado', 'required'),
 			array('nombre', 'length', 'max'=>100),
-			array('estado', 'length', 'max'=>1),
+			array('estado, desayuno, almuerzo, cena', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('idProveedor, nombre, estado', 'safe', 'on'=>'search'),
@@ -56,6 +56,9 @@ class Proveedores extends CActiveRecord
 			'idProveedor' => 'Id Proveedor',
 			'nombre' => 'Nombre',
 			'estado' => 'Estado',
+			'desayuno' => 'Desayuno',
+			'almuerzo' => 'Almuerzo',
+			'cena' => 'Cena',
 		);
 	}
 
@@ -80,9 +83,17 @@ class Proveedores extends CActiveRecord
 		$criteria->compare('idProveedor',$this->idProveedor,true);
 		$criteria->compare('nombre',$this->nombre,true);
 		$criteria->compare('estado',$this->estado,true);
+		$criteria->compare('desayuno',$this->desayuno,true);
+		$criteria->compare('almuerzo',$this->almuerzo,true);
+		$criteria->compare('cena',$this->cena,true);
+
+		$sort=new CSort();
+		$sort->defaultOrder = '`t`.`nombre` ASC';
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'pagination'=>array('pageSize'=>20),
+			'sort'=>$sort,
 		));
 	}
 
@@ -97,12 +108,24 @@ class Proveedores extends CActiveRecord
 		return parent::model($className);
 	}
 
-	public function getProveedores()	{
+	public function getProveedores() {
     	 
 		$proveedores = Proveedores::model()->findAllByAttributes(array(),
 	  	$condition = 'estado = 1 ORDER BY nombre desc');
 
 		return $proveedores;
+
+	}
+
+	public function getEstadoHabilitado($opcion) {
+		
+		switch ($opcion) {
+			case '1':
+				echo '<span class="glyphicon glyphicon-ok-circle"></span>';
+				break;
+			
+			default:
+		}
 
 	}
 }
